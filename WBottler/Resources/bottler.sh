@@ -58,12 +58,17 @@ echo "INSTALLER_URL................: $INSTALLER_URL"
 echo "INSTALLER_IS_ZIPPED..........: $INSTALLER_IS_ZIPPED"
 echo "INSTALLER_NAME...............: $INSTALLER_NAME"
 echo "INSTALLER_ARGUMENTS..........: $INSTALLER_ARGUMENTS"
+echo "REMOVE_MONO..................: $REMOVE_MONO"
+echo "REMOVE_INSTALLERS............: $REMOVE_INSTALLERS"
+echo "REMOVE_USERS.................: $REMOVE_USERS"
 echo "WINETRICKS_ITEMS.............: $WINETRICKS_ITEMS"
 echo "DLL_OVERRIDES................: $DLL_OVERRIDES"
 echo "EXECUTABLE_PATH..............: $EXECUTABLE_PATH"
 echo "EXECUTABLE_ARGUMENTS.........: $EXECUTABLE_ARGUMENTS"
 echo "EXECUTABLE_VERSION...........: $EXECUTABLE_VERSION"
+echo "BUNDLE_COPYRIGHT.............: $BUNDLE_COPYRIGHT"
 echo "BUNDLE_IDENTIFIER............: $BUNDLE_IDENTIFIER"
+echo "BUNDLE_CATEGORYTYPE..........: $BUNDLE_CATEGORYTYPE"
 echo "SILENT.......................: $SILENT"
 echo ""
 /usr/sbin/system_profiler SPHardwareDataType
@@ -233,8 +238,8 @@ elif [ -f "\$HOME/Applications/Wine.app/Contents/Resources/bin/wine" ]; then
     export WINEUSRPATH="\$HOME/Applications/Wine.app/Contents/Resources"
 elif [ -f "/Applications/Wine.app/Contents/Resources/bin/wine" ]; then
     export WINEUSRPATH="/Applications/Wine.app/Contents/Resources"
-elif [ -f "\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources/bin/wine" ]; then
-    export WINEUSRPATH="\$(mdfind 'kMDItemDisplayName == Wine.app' | grep -m 1 'Wine.app')/Contents/Resources"
+elif [ -f "\$(mdfind 'kMDItemCFBundleIdentifier == org.kronenberg.Wine' | grep -m 1 'Wine.app')/Contents/Resources/bin/wine" ]; then
+    export WINEUSRPATH="\$(mdfind 'kMDItemCFBundleIdentifier == org.kronenberg.Wine' | grep -m 1 'Wine.app')/Contents/Resources"
 else
     echo "Wine not found!"
     exit 1
@@ -266,7 +271,11 @@ BIN_PATH="\$BUNDLERESOURCEPATH/wineprefix/drive_c\$(sed 's|C:||' <<< "\$(dirname
 if [ -d "\$BIN_PATH" ]; then
     cd "\$BIN_PATH"
 fi
+if [ "\$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramArguments)" != "" ]; then
 "\$WINEUSRPATH/bin/wine" "\$BIN_FILE" \$(defaults read "\$BUNDLERESOURCEPATH/../Info" WineProgramArguments)
+else
+"\$WINEUSRPATH/bin/wine" "\$BIN_FILE"
+fi
 
 _EOF_
 	chmod a+x "$BOTTLE/Contents/MacOS/startwine"
@@ -286,8 +295,8 @@ _EOF_
     <string>English</string>
     <key>CFBundleExecutable</key>
     <string>startwine</string>
-	<key>CFBundleGetInfoString</key>
-	<string>$APP_PREFS_DOMAIN</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>$BUNDLE_COPYRIGHT</string>
     <key>CFBundleIdentifier</key>
     <string>$APP_PREFS_DOMAIN</string>
     <key>CFBundleInfoDictionaryVersion</key>
@@ -304,6 +313,8 @@ _EOF_
     <string>$EXECUTABLE_VERSION</string>
 	<key>CFBundleIconFile</key>
 	<string>Icon.icns</string>
+	<key>LSApplicationCategoryType</key>
+	<string>$BUNDLE_CATEGORYTYPE</string>
     <key>CFBundleDocumentTypes</key>
 	<array>
         <dict>
@@ -489,7 +500,7 @@ _EOF_
     winebottlerTry "$WINE" regedit /tmp/reg.reg
     winebottlerTry rm /tmp/reg.reg
 
-    cp "BUNDLERESOURCEPATH/winemenubuilder.exe" "$WINEPREFIX/drive_c/windows/System32/"
+    cp "$BUNDLERESOURCEPATH/winemenubuilder.exe" "$WINEPREFIX/drive_c/windows/System32/"
 }
 export -f winebottlerReg
 
@@ -529,7 +540,7 @@ winebottlerPrefix () {
     cd -
     winebottlerTry "$WINESERVER" -k
 	wait
-		
+
 	mv "$BOTTLE/Contents/Info.plist" "$BOTTLE/Contents/Info.plist2"
 	sed "s/%ProgramFiles%/$( sed 's/\\/\\\\/g' <<< $("$WINE" cmd.exe /c echo %ProgramFiles% | tr -d "\015"))/" "$BOTTLE/Contents/Info.plist2" > "$BOTTLE/Contents/Info.plist"
 	rm "$BOTTLE/Contents/Info.plist2"
@@ -566,7 +577,10 @@ export -f winebottlerPrefixCopy
 ##########                  Add items from winetricks                  #########
 ################################################################################
 function winebottlerWinetricks () {
-	[ "$WINETRICKS_ITEMS" != "" ] && {
+[ "$WINETRICKS_ITEMS" != "" ] && {
+
+        # be sure to have a nospace folder
+        mkdir -p "$NOSPACE_PATH"
 
         # prepare winetricks
         head -$(($(cat "$HOME/Library/Application Support/Wine/winetricks" | grep -n "execute_command()" | sed 's/[^0-9]//g') - 2)) "$HOME/Library/Application Support/Wine/winetricks" > "$NOSPACE_PATH/winetricks.sh"
@@ -601,10 +615,8 @@ function winebottlerWinetricks () {
 		# /WORKAROUND create "no-spaces environment"
 		export WINE="$WINESAVE"
 		export PATH=$PATHSAVE
-		export WINEPREFIX="$PREFSAVE"
-
-		# CLEANUP
-        rm -rf "$NOSPACE_PATH" &> /dev/null
+        export WINEPREFIX="$PREFSAVE"
+        rm -rf "$NOSPACE_PATH"
 	}
 }
 export -f winebottlerWinetricks
@@ -813,6 +825,25 @@ export -f winebottlerInstall
 ##########                         Cleanup                             #########
 ################################################################################
 function winebottlerCleanup () {
+
+    #remove mono?
+    [ "$REMOVE_MONO" == "1" ] && {
+        export WINETRICKS_ITEMS="remove_mono"
+        winebottlerWinetricks
+        wait
+    }
+
+    #remove installers?
+    [ "$REMOVE_INSTALLERS" == "1" ] && {
+        rm -rf "$WINEPREFIX/drive_c/windows/installer/*"
+    }
+
+    #remove userdir?
+    [ "$REMOVE_USERS" == "1" ] && {
+        find "$WINEPREFIX/drive_c/users" -maxdepth 1 ! -name "Public" -type d -exec rm -rf "{}" \;
+}
+
+    # CLEANUP
     rm -rf "$WINEBOTTLER_TMP"
 echo "$WINEBOTTLER_TMP"
 }

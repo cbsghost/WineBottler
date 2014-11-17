@@ -51,7 +51,31 @@
     NSString *template;
     NSString *installerSwitches;
     NSString *exe;
+    BOOL tNoMono;
     BOOL selfcontained;
+    NSArray *tCategoryTypes = [NSArray arrayWithObjects:
+                               @"public.app-category.business",
+                               @"public.app-category.developer-tools",
+                               @"public.app-category.education",
+                               @"public.app-category.entertainment",
+                               @"public.app-category.finance",
+                               @"public.app-category.games",
+                               @"public.app-category.graphics-design",
+                               @"public.app-category.healthcare-fitness",
+                               @"public.app-category.lifestyle",
+                               @"public.app-category.medical",
+                               @"public.app-category.music",
+                               @"public.app-category.news",
+                               @"public.app-category.photography",
+                               @"public.app-category.productivity",
+                               @"public.app-category.reference",
+                               @"public.app-category.social-networking",
+                               @"public.app-category.sports",
+                               @"public.app-category.travel",
+                               @"public.app-category.utilities",
+                               @"public.app-category.video",
+                               @"public.app-category.weather",
+                               nil];
     
     template = nil;
     if ([prefixes indexOfSelectedItem] > 0)
@@ -70,14 +94,17 @@
             break;
     }
     
+    tNoMono = FALSE;
+    if ([noMono state] == NSOffState)
+        tNoMono = TRUE;
+    
+    selfcontained = FALSE;
+    if ([selfcontainedInstall state] == NSOnState)
+        selfcontained = TRUE;
+    
     silent = @"";
     if ([silentInstall state] == NSOnState)
         silent = @"-q";
-    
-    selfcontained = FALSE;
-    if ([selfcontainedInstall state] == NSOnState) {
-        selfcontained = TRUE;
-    }
     
 	savePanel = [NSSavePanel savePanel];
 	[savePanel setExtensionHidden:YES];
@@ -92,12 +119,15 @@
                             installerIsZipped:nil
                                 installerName:[[installer stringValue] lastPathComponent]
                            installerArguments:installerSwitches
+                                       noMono:tNoMono
                                    winetricks:[winetricksController winetricks]
                                     overrides:[overriedes stringValue]
                                           exe:exe
                                  exeArguments:[executableArguments stringValue]
+                                bundleCopyright:[bundleCopyright stringValue]
                                 bundleVersion:[bundleVersion stringValue]
                              bundleIdentifier:[bundleIdentifier stringValue]
+                           bundleCategoryType:[tCategoryTypes objectAtIndex:[bundleCategoryType indexOfSelectedItem]]
                               bundleSignature:[bundleSignature stringValue]
                                        silent:silent
                                 selfcontained:selfcontained

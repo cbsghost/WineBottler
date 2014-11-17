@@ -122,12 +122,15 @@
 	installerIsZipped:(NSString *)tInstallerIsZipped
 		installerName:(NSString *)tInstallerName
    installerArguments:(NSString *)tInstallerArguments
+               noMono:(BOOL)tNoMono
 		   winetricks:(NSString *)tWinetricks
 			overrides:(NSString *)tOverrides
 				  exe:(NSString *)tExe
 		 exeArguments:(NSString *)tExeArguments
+      bundleCopyright:(NSString *)tBundleCopyright
 		bundleVersion:(NSString *)tBundleVersion
 	 bundleIdentifier:(NSString *)tBundleIdentifier
+   bundleCategoryType:(NSString *)tBundleCategoryType
       bundleSignature:(NSString *)tBundleSignature
 			   silent:(NSString *)tSilent
 		selfcontained:(BOOL)tSelfcontained
@@ -138,6 +141,7 @@
 	NSString *actionName;
 	NSString *targetPath;
 	NSString *wineBundlePath;
+	NSString *sNoMono = @"";
 	
 	self = [self init];
 	if (self) {
@@ -204,14 +208,20 @@
 			tInstallerIsZipped = @"0";
 		if (tInstallerArguments == nil)
 			tInstallerArguments = @"";
+		if (tNoMono == true)
+			sNoMono = @"1";
 		if (tWinetricks == nil)
 			tWinetricks = @"";
 		if (tOverrides == nil)
 			tOverrides = @"";
 		if (tExeArguments == nil)
 			tExeArguments = @"";
+		if (tBundleCopyright == nil)
+			tBundleCopyright = @"";
 		if (tBundleVersion == nil)
-			tBundleVersion = @"1.0";
+			tBundleVersion = @"1.0.0";
+		if (tBundleCategoryType == nil)
+			tBundleCategoryType = @"public.app-category.utilities";
 		if (tBundleIdentifier == nil)
 			tBundleIdentifier = @"org.kronenberg.winebottler";
         if (tBundleSignature != nil && ![tBundleSignature isEqual:@""]) {
@@ -262,12 +272,15 @@
 							   tInstallerName,									// INSTALLER_NAME
 							   tInstallerIsZipped,								// INSTALLER_IS_ZIPPED
 							   tInstallerArguments,								// INSTALLER_ARGUMENTS
+							   sNoMono,                                         // REMOVE_MONO
 							   tWinetricks,										// WINETRICKS_ITEMS
 							   tOverrides,										// DLL_OVERRIDES
 							   pathtoExecutable,								// EXECUTABLE_PATH
 							   tExeArguments,									// EXECUTABLE_ARGUMENTS
 							   tBundleVersion,									// EXECUTABLE_VERSION
+							   tBundleCopyright,								// BUNDLE_COPYRIGHT
 							   tBundleIdentifier,								// BUNDLE_IDENTIFIER
+							   tBundleCategoryType,								// BUNDLE_CATEGORYTYPE
 							   tSilent,											// SILENT
 							   nil]
 														   forKeys:
@@ -290,6 +303,7 @@
 							   @"INSTALLER_NAME",
 							   @"INSTALLER_IS_ZIPPED",
 							   @"INSTALLER_ARGUMENTS",
+							   @"REMOVE_MONO",
 							   
 							   @"WINETRICKS_ITEMS",
 							   @"DLL_OVERRIDES",
@@ -298,7 +312,9 @@
 							   @"EXECUTABLE_ARGUMENTS",
 							   @"EXECUTABLE_VERSION",
 							   
+							   @"BUNDLE_COPYRIGHT",
 							   @"BUNDLE_IDENTIFIER",
+							   @"BUNDLE_CATEGORYTYPE",
 							   @"SILENT",
 							   nil]];
 		
@@ -512,6 +528,7 @@
     NSPipe *errpipe;
     NSData *outdata;
     NSData *errdata;
+    NSRange range;
 	
 	alert = nil;
 	
@@ -608,13 +625,22 @@
 				[[NSFileManager defaultManager] removeItemAtURL:filename error:NULL];
 			path = [NSString stringWithFormat:@"%@/Desktop/%@_install.log", NSHomeDirectory(), [[[filename path] lastPathComponent] stringByDeletingPathExtension]];
 			[log appendString:[NSString stringWithFormat:@"Task returned with status %d.", [task terminationStatus]]];
-			[log writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
-			[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"Console"];
-			alert = [NSAlert alertWithMessageText:@"Prefix creation aborted"
-									defaultButton:nil
-								  alternateButton:nil
-									  otherButton:nil
-						informativeTextWithFormat:@""];
+            range = [log rangeOfString:@"sha1sum mismatch!"];
+            if (range.location != NSNotFound) {
+                alert = [NSAlert alertWithMessageText:@"Checksum Mismatch"
+                                        defaultButton:nil
+                                      alternateButton:nil
+                                          otherButton:nil
+                            informativeTextWithFormat:@"The checksum of a downloaded file did not match. Checksums are updated frequently. Plase try again later."];
+            } else {
+                [log writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
+                [[NSWorkspace sharedWorkspace] openFile:path withApplication:@"Console"];
+                alert = [NSAlert alertWithMessageText:@"Prefix creation aborted"
+                                        defaultButton:nil
+                                      alternateButton:nil
+                                          otherButton:nil
+                            informativeTextWithFormat:@""];
+            }
 			break;
 			
 			
@@ -624,13 +650,23 @@
 				[[NSFileManager defaultManager] removeItemAtURL:filename error:NULL];
 			path = [NSString stringWithFormat:@"%@/Desktop/%@_install.log", NSHomeDirectory(), [[[filename path] lastPathComponent] stringByDeletingPathExtension]];
 			[log appendString:[NSString stringWithFormat:@"Task returned with status %d.", [task terminationStatus]]];
-			[log writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
-			[[NSWorkspace sharedWorkspace] openFile:path withApplication:@"Console"];
-			alert = [NSAlert alertWithMessageText:@"Prefix creation exited with error"
-									defaultButton:nil
-								  alternateButton:nil
-									  otherButton:nil
-						informativeTextWithFormat:@"You find a logfile to help with debugging on your desktop."];
+            //sha1sum mismatch!  Rename /Users/mike/.cache/winetricks/metatrader5/mt5setup.exe and try again.
+            range = [log rangeOfString:@"sha1sum mismatch!"];
+            if (range.location != NSNotFound) {
+                alert = [NSAlert alertWithMessageText:@"Checksum Mismatch"
+                                        defaultButton:nil
+                                      alternateButton:nil
+                                          otherButton:nil
+                            informativeTextWithFormat:@"The checksum of a downloaded file did not match. Checksums are updated frequently. Plase try again later."];
+            } else {
+                [log writeToFile:path atomically:NO encoding:NSUTF8StringEncoding error:nil];
+                [[NSWorkspace sharedWorkspace] openFile:path withApplication:@"Console"];
+                alert = [NSAlert alertWithMessageText:@"Prefix creation exited with error"
+                                        defaultButton:nil
+                                      alternateButton:nil
+                                          otherButton:nil
+                            informativeTextWithFormat:@"You find a logfile to help with debugging on your desktop."];
+            }
 			break;
 	}
 	if (nil != alert) {

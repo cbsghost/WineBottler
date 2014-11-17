@@ -49,7 +49,7 @@
 /* Begin PBXBuildFile section */
 		27029B30107292740071F80B /* options_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27029B2F107292740071F80B /* options_bg.png */; };
 		270BB95611B2A16D000E25A2 /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
-		270BB95911B2A171000E25A2 /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		270BB95911B2A171000E25A2 /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		270BB96A11B2A3F4000E25A2 /* WBottler.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52C261095F87800303AA6 /* WBottler.m */; };
 		270BB97411B2A51F000E25A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		270BB98411B2A7DD000E25A2 /* default.sh in Resources */ = {isa = PBXBuildFile; fileRef = 277F2B460FB0376E0053775B /* default.sh */; };
@@ -67,10 +67,10 @@
 		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
 		27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAE15AFEFA700B14674 /* WPrefixController.m */; };
 		27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AB015AFEFA700B14674 /* WPrefixTableView.m */; };
-		276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2760801D1196E843004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
 		276080461196E98C004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
-		276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
+		276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2761BA2C1877A674006049E3 /* winemenubuilder.exe in Resources */ = {isa = PBXBuildFile; fileRef = 2761BA2B1877A674006049E3 /* winemenubuilder.exe */; };
 		276D9B6811B2AFDC00F23F0F /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
 		277950F111B2B99C00E2A76F /* WBottler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277950EF11B2B99C00E2A76F /* WBottler.xib */; };
@@ -84,15 +84,16 @@
 		278A5E6B15D9240A003246BC /* cup_smoke_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6715D9240A003246BC /* cup_smoke_2.png */; };
 		278A5E6C15D9240A003246BC /* cup_smoke_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6815D9240A003246BC /* cup_smoke_3.png */; };
 		278A5E6D15D9240A003246BC /* icon_cup_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 278A5E6915D9240A003246BC /* icon_cup_256.png */; };
-		278CEB4F11F57C9B0082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		278CEB4F11F57C9B0082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		278CEB8C11F5804C0082CD2C /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
-		278CEB9111F580520082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
+		278CEB9111F580520082CD2C /* WBottler.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		278CECAF11F5FB4C0082CD2C /* Winetricks.app in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BF8B11AD511C00B11B00 /* Winetricks.app */; };
 		27956F7A15A523EF0076FF2E /* KBActionWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
-		27956F7B15A524010076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F7B15A524010076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		27956F7C15A524180076FF2E /* KBActionWindow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
-		27956F7D15A5241F0076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; };
+		27956F7D15A5241F0076FF2E /* KBActionWindow.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 27956F7915A523EF0076FF2E /* KBActionWindow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		27956F8215A5810B0076FF2E /* winetricksextract.sh in Resources */ = {isa = PBXBuildFile; fileRef = 27956F8115A5810B0076FF2E /* winetricksextract.sh */; };
+		27957E111A105D0000491DBA /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF51095F4FC00303AA6 /* MainMenu.xib */; };
 		27C3E1D00FD01D9C006D9B75 /* Msi.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C3E1CB0FD01A93006D9B75 /* Msi.icns */; };
 		27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */ = {isa = PBXBuildFile; fileRef = 277D3D61107A3D00004611C3 /* dsapubkey.pem */; };
 		27C52A4810930FF800303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4210930FF800303AA6 /* Credits.html */; };
@@ -115,7 +116,6 @@
 		27C52BEB1095F46E00303AA6 /* WCustomController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BE21095F46E00303AA6 /* WCustomController.m */; };
 		27C52BF21095F4A900303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BF11095F4A900303AA6 /* main.m */; };
 		27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF31095F4FC00303AA6 /* InfoPlist.strings */; };
-		27C52BF81095F4FC00303AA6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF51095F4FC00303AA6 /* MainMenu.xib */; };
 		27C52BFA1095F55F00303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF91095F55F00303AA6 /* Credits.html */; };
 		27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
 		27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
@@ -882,7 +882,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					27C52A2110930DD900303AA6 = {
 						DevelopmentTeam = S3B4DFK8MA;
@@ -996,10 +996,10 @@
 				27029B30107292740071F80B /* options_bg.png in Resources */,
 				277D3D62107A3D00004611C3 /* dsapubkey.pem in Resources */,
 				27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */,
-				27C52BF81095F4FC00303AA6 /* MainMenu.xib in Resources */,
 				27D694A918B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 				27C52BFA1095F55F00303AA6 /* Credits.html in Resources */,
 				27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */,
+				27957E111A105D0000491DBA /* MainMenu.xib in Resources */,
 				27F3B9E111A6A29900B11B00 /* predefined.html in Resources */,
 				27F3BD8111AAFCE100B11B00 /* Programs.icns in Resources */,
 				27F3BD8F11AAFDE700B11B00 /* Application.icns in Resources */,
@@ -1638,8 +1638,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.13;
+				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
+				CURRENT_PROJECT_VERSION = 1.7.31;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -1657,8 +1657,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.13;
+				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
+				CURRENT_PROJECT_VERSION = 1.7.31;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

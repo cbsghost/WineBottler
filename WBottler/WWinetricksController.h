@@ -32,6 +32,7 @@
 	IBOutlet NSTableView *table;
 	IBOutlet NSButton *silentInstall;
 }
+- (BOOL) checkInternet;
 - (IBAction) search:(id)sender;
 - (IBAction) update:(id)sender;
 - (IBAction) apply:(id)sender;

@@ -230,7 +230,7 @@
 	// what shall we do?
 	if ([[NSUserDefaults standardUserDefaults] boolForKey:@"showWineWindow"]) {
 		
-		[wineWindow makeKeyAndOrderFront:self];
+//		[wineWindow makeKeyAndOrderFront:self];
 		
 		int i;
 		NSArray *prefixes;
@@ -257,7 +257,8 @@
 		[wineWindowShow setState:NSOffState];
 		
 		// what shall we do?
-		[wineWindow makeKeyAndOrderFront:self];
+		//[wineWindow makeKeyAndOrderFront:self];
+        [NSApp runModalForWindow:wineWindow];
 		[preferencesWindow setLevel:NSFloatingWindowLevel];
 	
 	} else {
@@ -270,12 +271,14 @@
 
 - (IBAction) wineWindowAbort:(id)sender
 {
+    [NSApp stopModal];
 	[wineWindow orderOut:self];
 }
 
 
 - (IBAction) wineWindowGo:(id)sender
 {
+    [NSApp stopModal];
 	[wineWindow orderOut:self];
 	if ([buttonRunInPrefix state] == NSOnState) {
 		[[NSUserDefaults standardUserDefaults] setObject:[buttonPrefixes titleOfSelectedItem] forKey:@"prefix"];
@@ -345,24 +348,26 @@
 {
 	[[[WBottler alloc] initWithScript:@"customprefix.sh"
                                   URL:[NSURL URLWithString:[[NSUserDefaults standardUserDefaults] objectForKey:@"prefix"]]
-							 template:nil
-						 installerURL:nil
-					installerIsZipped:nil
-						installerName:nil
-				   installerArguments:nil
-						   winetricks:nil
-							overrides:nil
-								  exe:@"notneeded"
-						 exeArguments:nil
-						bundleVersion:nil
-					 bundleIdentifier:nil
+                             template:nil
+                         installerURL:nil
+                    installerIsZipped:nil
+                        installerName:nil
+                   installerArguments:nil
+                               noMono:NO
+                           winetricks:nil
+                            overrides:nil
+                                  exe:@"notneeded"
+                         exeArguments:nil
+                      bundleCopyright:nil
+                        bundleVersion:nil
+                     bundleIdentifier:nil
+                   bundleCategoryType:nil
                       bundleSignature:nil
-							   silent:nil
-						selfcontained:NO
+                               silent:nil
+                        selfcontained:NO
 							   sender:self
 							 callback:@selector(createPrefixCallback:)] autorelease];
 }
-
 
 - (void) createPrefixCallback:(BOOL)tSuccess
 {

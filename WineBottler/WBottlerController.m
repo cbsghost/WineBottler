@@ -110,20 +110,55 @@
 }
 
 
+- (BOOL) checkInternet {
+    NSURLResponse *response;
+    NSError *error;
+    NSURL *url = [NSURL URLWithString:PREDEFINED_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    request.HTTPMethod = @"HEAD";
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    request.timeoutInterval = 10.0;
+    if (![NSURLConnection sendSynchronousRequest:request returningResponse:&response error: &error]) {
+        NSLog(@"%@", error);
+    };
+    
+    return ([(NSHTTPURLResponse *)response statusCode] == 200);
+}
+
+
 -(void) awakeFromNib
 {
     NSString *string;
+    NSAlert *alert;
+    NSError *error;
     
     [self showPredefinedWeb:self];
-    
     [progressIndicator setUsesThreadedAnimation:YES];
     [progressIndicator setIndeterminate:YES];
     [progressIndicator startAnimation:self];
     
+    // check if the internet is up:
+    if (![self checkInternet]) {
+        NSLog(@"Can't connect to the internet");
+        alert = [NSAlert alertWithMessageText:@"No Connection to the Internet"
+                                defaultButton:@"OK"
+                              alternateButton:nil
+                                  otherButton:nil
+                    informativeTextWithFormat:@"You can still use WineBottler, but some functions like \"Download\" and \"Winetricks\" will only work, if cached data is available. To update, just restart WineBottler, once you have an internet connection."];
+        [alert runModal];
+        [self revealBottlerWindow:self];
+        return;
+    }
+    
+    [updatePanel makeKeyAndOrderFront:self];
+    
     // update showcase
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@winebottler.plist", PREDEFINED_URL ]]];
     if (string) {
-        [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winebottler.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        if (![string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winebottler.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
+            NSLog(@"%@", error);
+        }
     } else {
         NSLog(@"Can't update winebottler.plist");
     }
@@ -131,7 +166,9 @@
     // update metadata
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@metadata.plist", PREDEFINED_URL ]]];
     if (string) {
-        [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@metadata.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        if (![string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@metadata.plist", APPSUPPORT_WINEBOTTLER]] atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
+            NSLog(@"%@", error);
+        }
     } else {
         NSLog(@"Can't update metadata.plist");
     }
@@ -374,12 +411,15 @@
                                     installerIsZipped:nil
                                         installerName:nil
                                    installerArguments:nil
+                                               noMono:NO
                                            winetricks:[programProperties objectForKey:@"verb"]
                                             overrides:nil
                                                   exe:exe
                                          exeArguments:nil
+                                      bundleCopyright:nil
                                         bundleVersion:nil
                                      bundleIdentifier:[NSString stringWithFormat:@"org.kronenberg.winebottler.%@", [programProperties objectForKey:@"verb"]]
+                                   bundleCategoryType:nil
                                       bundleSignature:nil
                                                silent:@"-q"
                                         selfcontained:FALSE
@@ -419,7 +459,7 @@
 	// search new entries
 	prefixMetadataQuery = [[NSMetadataQuery alloc] init];
 	[prefixMetadataQuery setDelegate:self];
-	predicate = [NSPredicate predicateWithFormat:@"kMDItemDisplayName ENDSWITH 'WineBottler.id' OR kMDItemDisplayName ENDSWITH '.app'", nil];
+	predicate = [NSPredicate predicateWithFormat:@"kMDItemDisplayName ENDSWITH 'WineBottler.id' OR kMDItemKind == 'Application'", nil];
 	[prefixMetadataQuery setPredicate:predicate];
 	[prefixMetadataQuery setSearchScopes:[NSArray arrayWithObject:NSMetadataQueryLocalComputerScope]];
 	[prefixMetadataQuery startQuery];	
@@ -441,7 +481,7 @@
 	knownPrefixes = [[[userDefaults objectForKey:@"knownPrefixes"] mutableCopy] autorelease];
 	searchResults = [(NSMetadataQuery*)[note object] results];
 
-	for (i = 0; i < [searchResults count]; i++) {	
+	for (i = 0; i < [searchResults count]; i++) {
 		if ([[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] lastPathComponent] isEqual:@"WineBottler.id"]) {
 			path = [[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] stringByResolvingSymlinksInPath] stringByDeletingLastPathComponent];
 			if (![knownPrefixes containsObject:path]) {

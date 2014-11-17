@@ -34,12 +34,15 @@
 	IBOutlet NSPopUpButton *prefixes;
 	IBOutlet NSTextField *switches;
 	IBOutlet NSTextField *executableArguments;
+	IBOutlet NSTextField *bundleCopyright;
 	IBOutlet NSTextField *bundleVersion;
 	IBOutlet NSTextField *bundleIdentifier;
     IBOutlet NSTextField *bundleSignature;
+	IBOutlet NSPopUpButton *bundleCategoryType;
 	IBOutlet NSTextField *overriedes;
 	IBOutlet NSTextField *installer;
 	IBOutlet NSMatrix *copyInstall;
+	IBOutlet NSButton *noMono;
 	IBOutlet NSButton *silentInstall;
 	IBOutlet NSButton *selfcontainedInstall;
 }

@@ -261,12 +261,15 @@
                                 installerIsZipped:nil
                                     installerName:nil
                                installerArguments:nil
+                                           noMono:NO
                                        winetricks:nil
                                         overrides:nil
                                               exe:@"notneeded"
                                      exeArguments:nil
+                                  bundleCopyright:nil
                                     bundleVersion:nil
                                  bundleIdentifier:nil
+                               bundleCategoryType:nil
                                   bundleSignature:nil
                                            silent:nil
                                     selfcontained:NO

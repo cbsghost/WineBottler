@@ -60,7 +60,9 @@
 
 - (void) awakeFromNib {
     [self loadWinetricks:self];
-    [NSThread detachNewThreadSelector:@selector(update:) toTarget:self withObject:nil];
+    if ([self checkInternet]) {
+        [NSThread detachNewThreadSelector:@selector(update:) toTarget:self withObject:nil];
+    }
 }
 
 
@@ -77,6 +79,23 @@
 }
 
 
+- (BOOL) checkInternet {
+    NSURLResponse *response;
+    NSError *error;
+    NSURL *url = [NSURL URLWithString:WINETRICKS_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    
+    request.HTTPMethod = @"HEAD";
+    request.cachePolicy = NSURLRequestReloadIgnoringLocalAndRemoteCacheData;
+    request.timeoutInterval = 10.0;
+    if (![NSURLConnection sendSynchronousRequest:request returningResponse:&response error: &error]) {
+        NSLog(@"%@", error);
+    };
+    
+    return ([(NSHTTPURLResponse *)response statusCode] == 200);
+}
+
+
 - (IBAction) update:(id)sender
 {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]; // Top-level pool
@@ -87,11 +106,14 @@
     NSTask *task;
     NSPipe *outpipe;
     NSPipe *errpipe;
+    NSError *error;
  
     // get a copy of the winetricks
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:WINETRICKS_URL]];
     if (string) {
-        [string writeToURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        if (![string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
+            NSLog(@"%@", error);
+        }
     } else {
         NSLog(@"Can't update winetricks");
     }
@@ -99,7 +121,9 @@
     // get a copy of the customverbs
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@customverbs", PREDEFINED_URL]]];
     if (string) {
-        [string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@customverbs", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        if (![string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@customverbs", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
+            NSLog(@"%@", error);
+        }
     } else {
         NSLog(@"Can't update @customverbs");
     }
@@ -168,12 +192,15 @@
 					installerIsZipped:nil
 						installerName:nil
 				   installerArguments:nil
+                               noMono:NO
 						   winetricks:[self winetricks]
 							overrides:nil
 								  exe:@"notneeded"
 						 exeArguments:nil
-						bundleVersion:nil
-					 bundleIdentifier:nil
+                      bundleCopyright:nil
+                        bundleVersion:nil
+                     bundleIdentifier:nil
+                   bundleCategoryType:nil
                       bundleSignature:nil
 							   silent:silent
 						selfcontained:NO
