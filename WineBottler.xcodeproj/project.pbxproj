@@ -63,6 +63,8 @@
 		2721D4760FA0BF64003802D1 /* deleteIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */; };
 		2721D4770FA0BF64003802D1 /* finderIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* finderIconTemplate.png */; };
 		27526E3911B4C79800EE1AEB /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27526E3811B4C79800EE1AEB /* Credits.html */; };
+		2758D9211A38E2FC006D9C1B /* QWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 2758D9201A38E28C006D9C1B /* QWindow.m */; };
+		2758D9231A38E3CC006D9C1B /* q_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 2758D9221A38E30F006D9C1B /* q_bg.png */; };
 		27596AA915AFEF6500B14674 /* WTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AA815AFEF6500B14674 /* WTask.m */; };
 		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
 		27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAE15AFEFA700B14674 /* WPrefixController.m */; };
@@ -141,8 +143,6 @@
 		27F3BFAF11AD524D00B11B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFAD11AD524D00B11B00 /* main.m */; };
 		27F3BFB011AD527A00B11B00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		27F3BFBB11AD542900B11B00 /* WTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFBA11AD542900B11B00 /* WTController.m */; };
-		27FF12EA15A6B05D00B21AEE /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12E815A6B05D00B21AEE /* paper.png */; };
-		27FF12EB15A6B05D00B21AEE /* paper@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12E915A6B05D00B21AEE /* paper@2x.png */; };
 		27FF12ED15A6B07100B21AEE /* T5PaperView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF12E715A6B01400B21AEE /* T5PaperView.m */; };
 		27FF12F415A6B27C00B21AEE /* custom.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12EE15A6B27C00B21AEE /* custom.png */; };
 		27FF12F515A6B27C00B21AEE /* custom@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12EF15A6B27C00B21AEE /* custom@2x.png */; };
@@ -293,6 +293,9 @@
 		2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reloadIconTemplate.png; path = "Shared Resources/reloadIconTemplate.png"; sourceTree = "<group>"; };
 		2721D4700FA0BF64003802D1 /* WineFolder.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = WineFolder.icns; path = "Shared Resources/WineFolder.icns"; sourceTree = "<group>"; };
 		27526E3811B4C79800EE1AEB /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WBottler/Resources/Credits.html; sourceTree = "<group>"; };
+		2758D91F1A38E28C006D9C1B /* QWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QWindow.h; path = WineBottler/QWindow.h; sourceTree = "<group>"; };
+		2758D9201A38E28C006D9C1B /* QWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QWindow.m; path = WineBottler/QWindow.m; sourceTree = "<group>"; };
+		2758D9221A38E30F006D9C1B /* q_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = q_bg.png; path = WineBottler/Resources/q_bg.png; sourceTree = "<group>"; };
 		27596AA715AFEF6500B14674 /* WTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTask.h; path = WineStatus/WTask.h; sourceTree = "<group>"; };
 		27596AA815AFEF6500B14674 /* WTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTask.m; path = WineStatus/WTask.m; sourceTree = "<group>"; };
 		27596AAB15AFEFA700B14674 /* WHLnk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WHLnk.h; path = WineStatus/WHLnk.h; sourceTree = "<group>"; };
@@ -301,8 +304,6 @@
 		27596AAE15AFEFA700B14674 /* WPrefixController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WPrefixController.m; path = WineStatus/WPrefixController.m; sourceTree = "<group>"; };
 		27596AAF15AFEFA700B14674 /* WPrefixTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WPrefixTableView.h; path = WineStatus/WPrefixTableView.h; sourceTree = "<group>"; };
 		27596AB015AFEFA700B14674 /* WPrefixTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WPrefixTableView.m; path = WineStatus/WPrefixTableView.m; sourceTree = "<group>"; };
-		276129CD184E5B3600220E80 /* INWindowButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INWindowButton.h; path = WineBottler/INWindowButton.h; sourceTree = "<group>"; };
-		276129CE184E5B3600220E80 /* INWindowButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INWindowButton.m; path = WineBottler/INWindowButton.m; sourceTree = "<group>"; };
 		2761BA2B1877A674006049E3 /* winemenubuilder.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = winemenubuilder.exe; path = WBottler/Resources/winemenubuilder.exe; sourceTree = "<group>"; };
 		277950F011B2B99C00E2A76F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WBottler/Resources/English.lproj/WBottler.xib; sourceTree = "<group>"; };
 		277D3B381079E9C1004611C3 /* wrestool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wrestool; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,8 +353,6 @@
 		27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "deleteIconTemplate@2x.png"; path = "Shared Resources/deleteIconTemplate@2x.png"; sourceTree = "<group>"; };
 		27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "finderIconTemplate@2x.png"; path = "Shared Resources/finderIconTemplate@2x.png"; sourceTree = "<group>"; };
 		27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "reloadIconTemplate@2x.png"; path = "Shared Resources/reloadIconTemplate@2x.png"; sourceTree = "<group>"; };
-		27E1421C15BB487F009542BB /* MASWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MASWindow.h; path = WineBottler/MASWindow.h; sourceTree = "<group>"; };
-		27E1421D15BB487F009542BB /* MASWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MASWindow.m; path = WineBottler/MASWindow.m; sourceTree = "<group>"; };
 		27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = bitcoinLogo.svg; path = WineBottler/Resources/bitcoinLogo.svg; sourceTree = "<group>"; };
 		27ECB2FB0FCD62910050C76A /* applywinetricks.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = applywinetricks.sh; path = WBottler/Resources/applywinetricks.sh; sourceTree = "<group>"; };
 		27ECB3000FCD62EB0050C76A /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Icon.icns; path = "Shared Resources/Icon.icns"; sourceTree = "<group>"; };
@@ -373,12 +372,8 @@
 		27F3BFAE11AD524D00B11B00 /* Winetricks_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Winetricks_Prefix.pch; path = Winetricks/Winetricks_Prefix.pch; sourceTree = "<group>"; };
 		27F3BFB911AD542900B11B00 /* WTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTController.h; path = Winetricks/WTController.h; sourceTree = "<group>"; };
 		27F3BFBA11AD542900B11B00 /* WTController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WTController.m; path = Winetricks/WTController.m; sourceTree = "<group>"; };
-		27FF12E415A6B01300B21AEE /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = INAppStoreWindow.h; path = WineBottler/INAppStoreWindow.h; sourceTree = "<group>"; };
-		27FF12E515A6B01400B21AEE /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = INAppStoreWindow.m; path = WineBottler/INAppStoreWindow.m; sourceTree = "<group>"; };
 		27FF12E615A6B01400B21AEE /* T5PaperView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = T5PaperView.h; path = WineBottler/T5PaperView.h; sourceTree = "<group>"; };
 		27FF12E715A6B01400B21AEE /* T5PaperView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = T5PaperView.m; path = WineBottler/T5PaperView.m; sourceTree = "<group>"; };
-		27FF12E815A6B05D00B21AEE /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = paper.png; path = WineBottler/Resources/paper.png; sourceTree = "<group>"; };
-		27FF12E915A6B05D00B21AEE /* paper@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "paper@2x.png"; path = "WineBottler/Resources/paper@2x.png"; sourceTree = "<group>"; };
 		27FF12EE15A6B27C00B21AEE /* custom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = custom.png; path = WineBottler/Resources/custom.png; sourceTree = "<group>"; };
 		27FF12EF15A6B27C00B21AEE /* custom@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "custom@2x.png"; path = "WineBottler/Resources/custom@2x.png"; sourceTree = "<group>"; };
 		27FF12F015A6B27C00B21AEE /* onmymac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = onmymac.png; path = WineBottler/Resources/onmymac.png; sourceTree = "<group>"; };
@@ -589,10 +584,8 @@
 		27C52BC21095F28A00303AA6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				27FF12E415A6B01300B21AEE /* INAppStoreWindow.h */,
-				27FF12E515A6B01400B21AEE /* INAppStoreWindow.m */,
-				276129CD184E5B3600220E80 /* INWindowButton.h */,
-				276129CE184E5B3600220E80 /* INWindowButton.m */,
+				2758D91F1A38E28C006D9C1B /* QWindow.h */,
+				2758D9201A38E28C006D9C1B /* QWindow.m */,
 				27FF12E615A6B01400B21AEE /* T5PaperView.h */,
 				27FF12E715A6B01400B21AEE /* T5PaperView.m */,
 				27C52BDB1095F46E00303AA6 /* WBController.h */,
@@ -605,8 +598,6 @@
 				27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */,
 				27C52BDF1095F46E00303AA6 /* WBPreferencesController.h */,
 				27C52BE01095F46E00303AA6 /* WBPreferencesController.m */,
-				27E1421C15BB487F009542BB /* MASWindow.h */,
-				27E1421D15BB487F009542BB /* MASWindow.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -623,6 +614,7 @@
 		27C52BC41095F2A800303AA6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2758D9221A38E30F006D9C1B /* q_bg.png */,
 				27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */,
 				278A5E6615D9240A003246BC /* cup_smoke_1.png */,
 				278A5E6715D9240A003246BC /* cup_smoke_2.png */,
@@ -634,8 +626,6 @@
 				27FF12F115A6B27C00B21AEE /* onmymac@2x.png */,
 				27FF12F215A6B27C00B21AEE /* programs.png */,
 				27FF12F315A6B27C00B21AEE /* programs@2x.png */,
-				27FF12E815A6B05D00B21AEE /* paper.png */,
-				27FF12E915A6B05D00B21AEE /* paper@2x.png */,
 				27F3BD8E11AAFDE700B11B00 /* Application.icns */,
 				27F3BD8011AAFCE100B11B00 /* Programs.icns */,
 				27C52C4B1095F96200303AA6 /* English.lproj */,
@@ -884,6 +874,9 @@
 			attributes = {
 				LastUpgradeCheck = 0610;
 				TargetAttributes = {
+					270BB94D11B2A146000E25A2 = {
+						DevelopmentTeam = S3B4DFK8MA;
+					};
 					27C52A2110930DD900303AA6 = {
 						DevelopmentTeam = S3B4DFK8MA;
 					};
@@ -1004,8 +997,6 @@
 				27F3BD8111AAFCE100B11B00 /* Programs.icns in Resources */,
 				27F3BD8F11AAFDE700B11B00 /* Application.icns in Resources */,
 				27F3BDCF11AB058C00B11B00 /* Localizable.strings in Resources */,
-				27FF12EA15A6B05D00B21AEE /* paper.png in Resources */,
-				27FF12EB15A6B05D00B21AEE /* paper@2x.png in Resources */,
 				27FF12F415A6B27C00B21AEE /* custom.png in Resources */,
 				27FF12F515A6B27C00B21AEE /* custom@2x.png in Resources */,
 				27FF12F615A6B27C00B21AEE /* onmymac.png in Resources */,
@@ -1018,6 +1009,7 @@
 				278A5E6D15D9240A003246BC /* icon_cup_256.png in Resources */,
 				27D694A718B7C9C800534E70 /* killIconTemplate@2x.png in Resources */,
 				27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */,
+				2758D9231A38E3CC006D9C1B /* q_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1172,6 +1164,7 @@
 				27C52BEA1095F46E00303AA6 /* WBPreferencesController.m in Sources */,
 				27C52BEB1095F46E00303AA6 /* WCustomController.m in Sources */,
 				27C52BF21095F4A900303AA6 /* main.m in Sources */,
+				2758D9211A38E2FC006D9C1B /* QWindow.m in Sources */,
 				27F3BCB811AA9DF600B11B00 /* WBWebViewController.m in Sources */,
 				27FF12ED15A6B07100B21AEE /* T5PaperView.m in Sources */,
 			);
@@ -1335,6 +1328,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1357,6 +1352,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = WBottler;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1364,6 +1360,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1385,6 +1383,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = WBottler;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1549,6 +1548,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1568,6 +1569,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = Winetricks;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1575,6 +1577,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1593,6 +1597,7 @@
 					AppKit,
 				);
 				PRODUCT_NAME = Winetricks;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1639,7 +1644,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
-				CURRENT_PROJECT_VERSION = 1.7.31;
+				CURRENT_PROJECT_VERSION = 1.7.33;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -1658,7 +1663,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
-				CURRENT_PROJECT_VERSION = 1.7.31;
+				CURRENT_PROJECT_VERSION = 1.7.33;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

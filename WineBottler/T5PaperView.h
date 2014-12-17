@@ -24,7 +24,6 @@
 #import <Cocoa/Cocoa.h>
 
 @interface T5PaperView : NSView {
-    NSImage *paper;
 }
 
 @end

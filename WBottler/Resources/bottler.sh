@@ -44,7 +44,6 @@ echo "BUNDLERESOURCEPATH...........: $BUNDLERESOURCEPATH"
 echo "WINEPATH.....................: $WINEPATH"
 echo "LD_LIBRARY_PATH..............: $LD_LIBRARY_PATH"
 echo "DYLD_FALLBACK_LIBRARY_PATH...: $DYLD_FALLBACK_LIBRARY_PATH"
-echo "FONTCONFIG_FILE..............: $FONTCONFIG_FILE"
 echo "SILENT.......................: $SILENT"
 echo "http_proxy...................: $http_proxy"
 echo "https_proxy..................: $https_proxy"
@@ -255,11 +254,10 @@ fi
 
 
 
-# exports
+# exports (we keep X11 for fallback)
 export PATH="\$WINEUSRPATH/bin":\$PATH
-export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:"\$WINEUSRPATH/lib"
-export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:\$WINEUSRPATH/lib"
-export FONTCONFIG_FILE="\$WINEUSRPATH/etc/fonts/fonts.conf"
+export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:"\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
+export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
 export WINEPATH="\$WINEUSRPATH/bin"
 
 #some default windows vars that might be missing ( http://ss64.com/nt/syntax-variables.html )
@@ -697,7 +695,6 @@ function runSanitized () {
 export WINEPATH="$WINEPATH"
 export DYLD_FALLBACK_LIBRARY_PATH="$DYLD_FALLBACK_LIBRARY_PATH"
 export LD_LIBRARY_PATH="$LD_LIBRARY_PATH"
-export FONTCONFIG_FILE="$FONTCONFIG_FILE"
 export WINEDEBUG="$WINEDEBUG"
 export DISPLAY="$DISPLAY"
 export PATH="$NOSPACE_PATH":"$PATH"

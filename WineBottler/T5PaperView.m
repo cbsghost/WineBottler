@@ -37,22 +37,9 @@
 }
 
 
-- (void) dealloc
-{
-    if (paper)
-        [paper release];
-    [super dealloc];
-}
-
-
--(void) awakeFromNib {
-    paper = [[NSImage imageNamed:@"paper"] retain];
-}
-
-
 - (void)drawRect:(NSRect)dirtyRect
 {
-    [[NSColor colorWithPatternImage:paper] setFill];
+    [[NSColor colorWithDeviceWhite:0.19 alpha:1.0] setFill];
     NSRectFill(dirtyRect);
 }
 @end

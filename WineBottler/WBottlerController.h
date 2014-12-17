@@ -26,7 +26,6 @@
 #import <WebKit/WebKit.h>
 #import "WebKit/WebUIDelegate.h"
 #import "WebKit/WebPolicyDelegate.h"
-#import "INAppStoreWindow.h"
 #import <WBottler/WBottler.h>
 
 
@@ -35,7 +34,7 @@
 	IBOutlet NSPanel *updatePanel;
     IBOutlet NSProgressIndicator *progressIndicator;
     
-	IBOutlet INAppStoreWindow *bottlerWindow;
+	IBOutlet NSWindow *bottlerWindow;
     
     BOOL isWindowRevealed;
 
