@@ -43,6 +43,7 @@ enum {
 };
 
 @interface WBottler : NSObject {
+    BOOL debug;
 	BOOL finished;
 	id bottlerController;
 	SEL callback;

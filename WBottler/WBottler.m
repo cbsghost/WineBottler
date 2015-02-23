@@ -30,6 +30,8 @@
 {
 	self = [super init];
 	if (self) {
+        
+        debug = YES;
 		
 		// Take ownerschip
 		[self retain];
@@ -257,8 +259,8 @@
 							  [NSArray arrayWithObjects:
 							   [NSString stringWithFormat:@"%@/bin:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"], [[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"]],
 							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPATH
-							   [NSString stringWithFormat:@"%@/lib:/usr/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
-							   [NSString stringWithFormat:@"%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
+							   [NSString stringWithFormat:@"%@/lib:/usr/lib:/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
+							   [NSString stringWithFormat:@"%@/lib:/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
 							   NSUserName(),									// USER
 							   NSHomeDirectory(),								// HOME
@@ -358,6 +360,9 @@
 
 - (void) dealloc
 {
+    if (debug)
+        NSLog(@"- (void) dealloc");
+    
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	if (task)
 		[task release];
@@ -432,6 +437,9 @@
 
 - (void) checkATaskStatus:(NSNotification *)aNotification
 {
+    if (debug)
+        NSLog(@"- (void) checkATaskStatus:(NSNotification *)aNotification");
+    
 	W_DEBUG(@"checkATaskStatus");
 	
 	if ([[aNotification object] isEqual:task]) {
@@ -449,6 +457,9 @@
 
 - (IBAction) abort:(id)sender
 {
+    if (debug)
+        NSLog(@"- (IBAction) abort:(id)sender");
+    
 	if ([task isRunning]) {
 		[task terminate];
 	}
@@ -457,11 +468,17 @@
 
 - (IBAction) findExe:(id)sender
 {
+    if (debug)
+        NSLog(@"- (IBAction) findExe:(id)sender");
+    
 	int i;
 	NSArray *files;
 	NSMutableArray *exeFiles;
 	
-    [NSBundle loadNibNamed:@"WBottler" owner:self];
+    NSLog(@"%d", [NSBundle loadNibNamed:@"WBottler" owner:self]);
+    //[[NSBundle mainBundle] loadNibNamed:@"WBottler" owner:self topLevelObjects:nil];
+    [findExePanel retain];
+
 
 	exeFiles = [NSMutableArray arrayWithCapacity:2];
 	files = [[NSFileManager defaultManager] subpathsAtPath:[NSString stringWithFormat:@"%@/Contents/Resources/wineprefix/drive_c/", [filename path]]];
@@ -482,17 +499,24 @@
 		[exeSelector addItemWithTitle:[exeFiles objectAtIndex:i]];
 	}
 	[exeSelector selectItemAtIndex:[exeFiles count]];
-	
-	[NSApp beginSheet:findExePanel
-	   modalForWindow:[[KBActionWindow sharedKBActionWindow] window]
-        modalDelegate:self
-	   didEndSelector:nil
-		  contextInfo:nil];
+    NSLog(@"x: %@", findExePanel);
+//    if ([[[KBActionWindow sharedKBActionWindow] window] respondsToSelector:@selector(beginSheet:completionHandler:)]) {
+//        [[[KBActionWindow sharedKBActionWindow] window] beginSheet:findExePanel completionHandler:nil];
+//    } else {
+        [NSApp beginSheet:findExePanel
+           modalForWindow:[[KBActionWindow sharedKBActionWindow] window]
+            modalDelegate:self
+           didEndSelector:nil
+              contextInfo:nil];
+//    }
 }
 
 
 - (IBAction)foundExe:(id)sender
-{	
+{
+    if (debug)
+        NSLog(@"- (IBAction)foundExe:(id)sender");
+    
 	NSString *plist;
 	NSStringEncoding encoding;
 	
@@ -509,6 +533,9 @@
 
 - (void) callCallback:(BOOL)success
 {
+    if (debug)
+        NSLog(@"- (void) callCallback:(BOOL)success");
+    
 	NSInvocation *invocation;
 	
 	invocation = [NSInvocation invocationWithMethodSignature:[[bottlerController class] instanceMethodSignatureForSelector:callback]];
@@ -521,6 +548,9 @@
 
 - (IBAction) finish:(id)sender
 {
+    if (debug)
+        NSLog(@"- (IBAction) finish:(id)sender");
+    
 	NSString *path;
 	NSAlert *alert;
 	NSTask *icontask;
@@ -680,6 +710,8 @@
 
 - (void) alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo
 {
+    if (debug)
+        NSLog(@"- (void) alertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo");
 	// get rid of window, as the callback will delay the release
 	[[alert window] orderOut:self];
 	if (installAction)

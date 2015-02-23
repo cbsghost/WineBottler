@@ -79,8 +79,8 @@
 							  [NSArray arrayWithObjects:
                                [NSString stringWithFormat:@"%@/bin:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"], [[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"]],
 							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],						// WINEPATH
-							   [NSString stringWithFormat:@"%@/lib:/usr/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// DYLD_FALLBACK_LIBRARY_PATH
-							   [NSString stringWithFormat:@"%@/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// LD_LIBRARY_PATH
+							   [NSString stringWithFormat:@"%@/lib:/usr/lib:/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// DYLD_FALLBACK_LIBRARY_PATH
+							   [NSString stringWithFormat:@"%@/lib::/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],		// LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]],	// FONTCONFIG_FILE
 							   [[NSUserDefaults standardUserDefaults] objectForKey:@"prefix"],					// WINEPREFIX
 							   wineDebug,																		// WINEDEBUG

@@ -1027,7 +1027,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PROJECT=$PROJECT_NAME\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineBottler_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
+			shellScript = "PROJECT=$PROJECT_NAME\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\nspctl -a \"$TARGET_BUILD_DIR/$PROJECT.app\"\nif [ $? -ne 0 ]; then\necho \"###GATEKEEPER###\"\nwait\nexit 1\nfi\n\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineBottler_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
 		};
 		277D3B3D1079E9E3004611C3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1079,7 +1079,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# make frameworks with @loader_path usable\ncd \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Versions\"\nrm -f Frameworks &> /dev/null\nln -s Current/Frameworks Frameworks\n\n#cp \"$TARGET_BUILD_DIR/libz.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libpng.3.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libjasper.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libicns.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n\ncp \"$TARGET_BUILD_DIR/icotool\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\ncp \"$TARGET_BUILD_DIR/\"*.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n";
+			shellScript = "# make frameworks with @loader_path usable\ncd \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework\"\n#ln -s Versions/Current/Frameworks Frameworks\n\ninstall_name_tool -change @loader_path/../Frameworks/KBActionWindow.framework/Versions/A/KBActionWindow @loader_path/Frameworks/KBActionWindow.framework/Versions/A/KBActionWindow WBottler\n\ncd \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Versions\"\n#rm -f Frameworks &> /dev/null\n#ln -s Current/Frameworks Frameworks\n\n\n#cp \"$TARGET_BUILD_DIR/libz.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libpng.3.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libjasper.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n#cp \"$TARGET_BUILD_DIR/libicns.1.dylib\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n\ncp \"$TARGET_BUILD_DIR/icotool\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\ncp \"$TARGET_BUILD_DIR/\"*.dylib \"$TARGET_BUILD_DIR/$PRODUCT_NAME.framework/Resources/\"\n";
 		};
 		27C52AFD10933F9D00303AA6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1092,7 +1092,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "PROJECT=\"Wine\"\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineStatus_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nditto \"$TARGET_BUILD_DIR/Wine.app/Contents/Resources\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/Contents/Resources/\"\ncp Readme.rtf \"$TEMP_FILES_DIR/DMG/Readme.rtf\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
+			shellScript = "PROJECT=\"Wine\"\nVERSION=$(pl < \"$TARGET_BUILD_DIR/$PROJECT.app/Contents/Info.plist\" | grep CFBundleVersion | sed 's/    CFBundleVersion = \"//g' | sed 's/\";//g')\n\nspctl -a \"$TARGET_BUILD_DIR/$PROJECT.app\"\nif [ $? -ne 0 ]; then\necho \"###GATEKEEPER###\"\nwait\nexit 1\nfi\n\nrm \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" &>/dev/null\nrm -rf \"$TEMP_FILES_DIR/DMG\" &>/dev/null\nmkdir \"$TEMP_FILES_DIR/DMG\"\n\ncd dmg\ncp bg.png \"$TEMP_FILES_DIR/DMG/\"\ncp WineStatus_DMG_DS_Store \"$TEMP_FILES_DIR/DMG/.DS_Store\"\nditto \"$TARGET_BUILD_DIR/$PROJECT.app\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/\"\nditto \"$TARGET_BUILD_DIR/Wine.app/Contents/Resources\" \"$TEMP_FILES_DIR/DMG/$PROJECT.app/Contents/Resources/\"\ncp Readme.rtf \"$TEMP_FILES_DIR/DMG/Readme.rtf\"\nln -s /Applications \"$TEMP_FILES_DIR/DMG/Applications\"\n\nSetFile -a V \"$TEMP_FILES_DIR/DMG/bg.png\"\nSetFile -a V \"$TEMP_FILES_DIR/DMG/.DS_Store\"\n\nhdiutil makehybrid -hfs -hfs-volume-name \"$PROJECT\" -hfs-openfolder \"$TEMP_FILES_DIR/DMG\" \"$TEMP_FILES_DIR/DMG\" -o \"$TEMP_FILES_DIR/TMP.dmg\"\nhdiutil convert -format UDZO \"$TEMP_FILES_DIR/TMP.dmg\" -o \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\"\n\nrm \"$TEMP_FILES_DIR/TMP.dmg\"\nrm -rf \"$TEMP_FILES_DIR/DMG\"\n\nruby \"/Users/mike/Documents/Xcode Projects/Sparkle-current/Extras/Signing Tools/sign_update.rb\" \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dmg\" ~/.sparkleUpdateKey/dsaprivkey.pem > \"$TARGET_BUILD_DIR/$(echo $PROJECT)_$(echo $VERSION).dsa\"";
 		};
 		27C52B8C1093660400303AA6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1317,7 +1317,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = dmg;
 				ZERO_LINK = NO;
@@ -1328,8 +1327,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1360,8 +1358,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1451,6 +1448,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1477,6 +1475,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1514,7 +1513,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = "Wine dmg";
 				ZERO_LINK = NO;
@@ -1537,7 +1535,6 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = "${CURRENT_PROJECT_VERSION}";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = "Wine dmg";
 				ZERO_LINK = NO;
@@ -1548,8 +1545,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1577,8 +1573,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1605,6 +1600,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1625,6 +1621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1643,8 +1640,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
-				CURRENT_PROJECT_VERSION = 1.7.33;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
+				CURRENT_PROJECT_VERSION = 1.7.37;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -1662,8 +1659,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
-				CODE_SIGN_IDENTITY = "Mac Developer: Michael Kronenberg (7RD9M6WHE3)";
-				CURRENT_PROJECT_VERSION = 1.7.33;
+				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
+				CURRENT_PROJECT_VERSION = 1.7.37;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
