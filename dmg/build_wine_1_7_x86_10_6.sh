@@ -387,14 +387,14 @@ if [ ! -f "wine-$WINE_VERSION/wine-built" ]; then
     rm -rf wine-*
     load "http://ibiblio.org/pub/linux/system/emulators/wine/wine-$WINE_VERSION.tar.bz2"
     cd "wine-$WINE_VERSION"
-    
-    
+
+
     # no more patches :)
     #patch -p1 -u < "../../diff/24b66842c4d72676a3552f5888f80ce4bc76d51c.diff"
     #patch -p1 < "../../diff/ce4b6451aabbe83809c7483c748cfa009cc090d6.patch"
-    
+
     #gnutls not needed: https://trac.macports.org/ticket/29909
-    
+
     WINE_CONFIGURE="\
         --verbose\
         --prefix=$BUILDDIRECTORY/usr\
@@ -520,13 +520,13 @@ _EOF_
     check_err $? "Can't copy startwine"
     chmod a+x "$BUILDDIRECTORY/Wine/Wine.app/Contents/MacOS/startwine"
     check_err $? "Can't chmod startwine"
-    
+
     mkdir -p "$BUILDDIRECTORY/Wine/Wine.app/Contents/Resources"
     check_err $? "Can't create Wine.app/Resources"
-    
+
     tarcp "$BUILDDIRECTORY/usr/" "$BUILDDIRECTORY/Wine/Wine.app/Contents/Resources/" &> /dev/null
     check_err $? "Can't tarcp Wine"
-    
+
     logtextStatus "[OK]"
 fi
 
@@ -591,6 +591,47 @@ check_err $? "Can't create folder for mono"
 cp "$BUILDDIRECTORY/downloads/wine-mono-$MONO_VERSION.msi" "$BUILDDIRECTORY/Wine/Wine_$WINE_VERSION.bundle/Contents/Resources/share/wine/mono/wine-mono-$MONO_VERSION.msi"
 check_err $? "Can't copy mono"
 logtextStatus "[OK]"
+
+
+
+
+
+
+
+#fix dylib paths
+RES="$BUILDDIRECTORY/Wine/Wine_$WINE_VERSION.bundle/Contents/Resources"
+
+changepathbin() {
+    otool -L $1 | grep .dylib | grep "$BUILDDIRECTORY/usr/lib/" | while read -r LIB ; do
+        install_name_tool -change $(sed -e s/.\(.*\)// <<< $(echo $LIB)) $(sed -e s!.Users.mike.Documents.wine.usr!@rpath/..! -e s/.\(.*\)// <<< $(echo $LIB)) $1
+    done
+}
+declare -x -f changepathbin
+
+changepathlib() {
+    otool -L $1 | grep .dylib | grep "$BUILDDIRECTORY/usr/lib/" | while read -r LIB ; do
+        install_name_tool -change $(sed -e s/.\(.*\)// <<< $(echo $LIB)) $(sed -e s!.Users.mike.Documents.wine.usr.lib!@rpath! -e s/.\(.*\)// <<< $(echo $LIB)) $1
+    done
+}
+declare -x -f changepathlib
+
+fixpathbin() {
+    find $1 -type f -exec bash -c 'changepathbin "{}"' \;
+}
+
+fixpathlib() {
+    find $1 -type f -exec bash -c 'changepathlib "{}"' \;
+}
+
+fixpathbin $RES/bin
+fixpathbin $RES/sbin
+fixpathlib $RES/lib
+
+for DIR in $(ls -d $RES/lib/*/); do
+    fixpathbin $DIR
+done
+
+
 
 
 cleanup
