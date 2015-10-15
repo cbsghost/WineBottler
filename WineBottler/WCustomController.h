@@ -38,11 +38,15 @@
 	IBOutlet NSTextField *bundleVersion;
 	IBOutlet NSTextField *bundleIdentifier;
     IBOutlet NSTextField *bundleSignature;
-	IBOutlet NSPopUpButton *bundleCategoryType;
+    IBOutlet NSPopUpButton *bundleCategoryType;
+    IBOutlet NSPopUpButton *systemVersionInfo;
 	IBOutlet NSTextField *overriedes;
 	IBOutlet NSTextField *installer;
-	IBOutlet NSMatrix *copyInstall;
-	IBOutlet NSButton *noMono;
+    IBOutlet NSMatrix *copyInstall;
+    IBOutlet NSButton *noMono;
+    IBOutlet NSButton *noGecko;
+    IBOutlet NSButton *noUsers;
+    IBOutlet NSButton *noInstallers;
 	IBOutlet NSButton *silentInstall;
 	IBOutlet NSButton *selfcontainedInstall;
 }

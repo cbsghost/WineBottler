@@ -77,6 +77,9 @@ enum {
 		installerName:(NSString *)tInstallerName
    installerArguments:(NSString *)tInstallerArguments
                noMono:(BOOL)tNoMono
+              noGecko:(BOOL)tNoGecko
+              noUsers:(BOOL)tNoUsers
+         noInstallers:(BOOL)tNoInstallers
 		   winetricks:(NSString *)tWinetricks
 			overrides:(NSString *)tOverrides
 				  exe:(NSString *)tExe

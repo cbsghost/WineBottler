@@ -39,7 +39,7 @@
 
 
 "WBottlerController:prefixDelete:setMessageText" = "Remove \"%@\"?";
-"WBottlerController:prefixDelete:setInformativeText" = "This will remove program \"%@\" and all it's application data.";
+"WBottlerController:prefixDelete:setInformativeText" = "This will remove program \"%@\" and all its application data.";
 "WBottlerController:prefixDelete:addButtonWithTitle:Remove" = "Remove";
 "WBottlerController:prefixDelete:addButtonWithTitle:Cancel" = "Cancel";
 

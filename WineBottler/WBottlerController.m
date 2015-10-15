@@ -412,6 +412,9 @@
                                         installerName:nil
                                    installerArguments:nil
                                                noMono:NO
+                                               noGecko:NO
+                                               noUsers:NO
+                                               noInstallers:NO
                                            winetricks:[programProperties objectForKey:@"verb"]
                                             overrides:nil
                                                   exe:exe
@@ -482,16 +485,21 @@
 	searchResults = [(NSMetadataQuery*)[note object] results];
 
 	for (i = 0; i < [searchResults count]; i++) {
-		if ([[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] lastPathComponent] isEqual:@"WineBottler.id"]) {
-			path = [[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] stringByResolvingSymlinksInPath] stringByDeletingLastPathComponent];
-			if (![knownPrefixes containsObject:path]) {
-				[knownPrefixes addObject:path];
-			}
+        // search working copies
+        if ([[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] lastPathComponent] isEqual:@"WineBottler.id"]) {
+            if (![[[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] stringByDeletingLastPathComponent] lastPathComponent] isEqual:@"wineprefix"]) {
+                path = [[[[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath] stringByResolvingSymlinksInPath] stringByDeletingLastPathComponent];
+                if (![knownPrefixes containsObject:path]) {
+                    [knownPrefixes addObject:path];
+                }
+            }
+        // search new apps
 		} else if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/Contents/Resources/wineprefix/WineBottler.id", [[searchResults objectAtIndex:i] valueForAttribute:(NSString *)kMDItemPath]]]) {
 			path = [NSString stringWithFormat:@"%@/Contents/Resources", [[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath]];
 			if (![knownPrefixes containsObject:path]) {
 				[knownPrefixes addObject:path];
 			}
+        // search old apps
 		} else if ([[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/Contents/Resources/WineBottler.id", [[searchResults objectAtIndex:i] valueForAttribute:(NSString *)kMDItemPath]]]) {
 			path = [NSString stringWithFormat:@"%@/Contents/Resources", [[searchResults objectAtIndex:i] valueForAttribute: (NSString *)kMDItemPath]];
 			if (![knownPrefixes containsObject:path]) {
@@ -574,7 +582,10 @@
         [items appendString:lonePrefixes];
         [items appendString:@"</div>"];
     }
-    [[bottlerViewPrefixWebView mainFrame] loadHTMLString:[NSString stringWithFormat:predefinedTemplate, explanation, items] baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[bottlerViewPrefixWebView mainFrame] loadHTMLString:[NSString stringWithFormat:predefinedTemplate, explanation, items] baseURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] resourcePath]]];
+    });
 }
 
 

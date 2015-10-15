@@ -191,8 +191,11 @@
 						 installerURL:nil
 					installerIsZipped:nil
 						installerName:nil
-				   installerArguments:nil
+                   installerArguments:nil
                                noMono:NO
+                               noGecko:NO
+                               noUsers:NO
+                               noInstallers:NO
 						   winetricks:[self winetricks]
 							overrides:nil
 								  exe:@"notneeded"

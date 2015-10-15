@@ -31,7 +31,7 @@
 
 
 @interface WBottlerController : NSObject <NSMetadataQueryDelegate,NSWindowDelegate,NSToolbarDelegate> {
-	IBOutlet NSPanel *updatePanel;
+	IBOutlet NSWindow *updatePanel;
     IBOutlet NSProgressIndicator *progressIndicator;
     
 	IBOutlet NSWindow *bottlerWindow;

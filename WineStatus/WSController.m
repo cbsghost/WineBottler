@@ -354,6 +354,9 @@
                         installerName:nil
                    installerArguments:nil
                                noMono:NO
+                               noGecko:NO
+                               noUsers:NO
+                               noInstallers:NO
                            winetricks:nil
                             overrides:nil
                                   exe:@"notneeded"

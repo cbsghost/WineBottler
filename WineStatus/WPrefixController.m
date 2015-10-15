@@ -36,8 +36,6 @@
 		foundPrefixes = [[NSArray arrayWithArray:[[NSUserDefaults standardUserDefaults] objectForKey:@"knownPrefixes"]] retain];
 		
 		// we want to be informed about new search results
-		
-		// we want to be notified
 		[[NSDistributedNotificationCenter defaultCenter] addObserver:self selector:@selector(queryForPrefixes:) name:@"WineBottlerPrefixesChanged" object:nil];	
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(queryFinished:) name:NSMetadataQueryDidFinishGatheringNotification object:query];	
 	}
@@ -262,6 +260,9 @@
                                     installerName:nil
                                installerArguments:nil
                                            noMono:NO
+                                           noGecko:NO
+                                           noUsers:NO
+                                           noInstallers:NO
                                        winetricks:nil
                                         overrides:nil
                                               exe:@"notneeded"

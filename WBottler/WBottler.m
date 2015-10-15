@@ -81,9 +81,12 @@
 	NSAlert *alert;
 	NSString *tWinePath;
 	
-	winePaths = [NSArray arrayWithObjects:
-				 // in WineBottler
-				 [NSString stringWithFormat:@"%@/Wine.bundle/Contents/Resources", [[NSBundle mainBundle] resourcePath]],
+    winePaths = [NSArray arrayWithObjects:
+                 // in Wine
+                 [[NSBundle mainBundle] resourcePath],
+                 
+                 // in WineBottler
+                 [NSString stringWithFormat:@"%@/Wine.bundle/Contents/Resources", [[NSBundle mainBundle] resourcePath]],
 				
 				 // in selfcontained App
 				 [NSString stringWithFormat:@"%@../../../Wine.bundle/Contents/Resources", [[NSBundle mainBundle] resourcePath]],
@@ -125,6 +128,9 @@
 		installerName:(NSString *)tInstallerName
    installerArguments:(NSString *)tInstallerArguments
                noMono:(BOOL)tNoMono
+              noGecko:(BOOL)tNoGecko
+              noUsers:(BOOL)tNoUsers
+         noInstallers:(BOOL)tNoInstallers
 		   winetricks:(NSString *)tWinetricks
 			overrides:(NSString *)tOverrides
 				  exe:(NSString *)tExe
@@ -142,8 +148,11 @@
 	NSMutableDictionary *environment;
 	NSString *actionName;
 	NSString *targetPath;
-	NSString *wineBundlePath;
-	NSString *sNoMono = @"";
+    NSString *wineBundlePath;
+    NSString *sNoMono = @"";
+    NSString *sNoGecko = @"";
+    NSString *sNoUsers = @"";
+    NSString *sNoInstallers = @"";
 	
 	self = [self init];
 	if (self) {
@@ -209,9 +218,15 @@
 		if (tInstallerIsZipped == nil)
 			tInstallerIsZipped = @"0";
 		if (tInstallerArguments == nil)
-			tInstallerArguments = @"";
-		if (tNoMono == true)
-			sNoMono = @"1";
+            tInstallerArguments = @"";
+        if (tNoMono == true)
+            sNoMono = @"1";
+        if (tNoGecko == true)
+            sNoGecko = @"1";
+        if (tNoUsers == true)
+            sNoUsers = @"1";
+        if (tNoInstallers == true)
+            sNoInstallers = @"1";
 		if (tWinetricks == nil)
 			tWinetricks = @"";
 		if (tOverrides == nil)
@@ -247,6 +262,18 @@
                 toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/Contents/Resources/Wine.bundle", [filename path]]]
                 error:&error])
                 NSLog(@"Error %@", error);
+            if (tNoMono) {
+                if(![[NSFileManager defaultManager]
+                    removeItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/Contents/Resources/Wine.bundle/Contents/Resources/share/wine/mono", [filename path]]]
+                    error:&error])
+                    NSLog(@"Error %@", error);
+            }
+            if (tNoGecko) {
+                if(![[NSFileManager defaultManager]
+                    removeItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/Contents/Resources/Wine.bundle/Contents/Resources/share/wine/gecko", [filename path]]]
+                    error:&error])
+                    NSLog(@"Error %@", error);
+            }
 		}
 
 		task = [[NSTask alloc] init];
@@ -273,8 +300,11 @@
 							   tInstallerURL,									// INSTALLER_URL
 							   tInstallerName,									// INSTALLER_NAME
 							   tInstallerIsZipped,								// INSTALLER_IS_ZIPPED
-							   tInstallerArguments,								// INSTALLER_ARGUMENTS
-							   sNoMono,                                         // REMOVE_MONO
+                               tInstallerArguments,								// INSTALLER_ARGUMENTS
+                               sNoMono,                                         // REMOVE_MONO
+                               sNoGecko,                                        // REMOVE_GECKO
+                               sNoUsers,                                        // REMOVE_USERS
+                               sNoInstallers,                                   // REMOVE_INSTALLERS
 							   tWinetricks,										// WINETRICKS_ITEMS
 							   tOverrides,										// DLL_OVERRIDES
 							   pathtoExecutable,								// EXECUTABLE_PATH
@@ -305,7 +335,10 @@
 							   @"INSTALLER_NAME",
 							   @"INSTALLER_IS_ZIPPED",
 							   @"INSTALLER_ARGUMENTS",
-							   @"REMOVE_MONO",
+                               @"REMOVE_MONO",
+                               @"REMOVE_GECKO",
+                               @"REMOVE_USERS",
+                               @"REMOVE_INSTALLERS",
 							   
 							   @"WINETRICKS_ITEMS",
 							   @"DLL_OVERRIDES",

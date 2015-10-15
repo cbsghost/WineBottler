@@ -43,7 +43,6 @@
         wFinderIcon = [NSImage imageNamed: @"finderIconTemplate.tiff"];
         icon_width = [wDeleteIcon size].width;
         icon_height = [wDeleteIcon size].height;
-		[wFinderIcon setFlipped:YES];
     }
     
     return self;
@@ -164,12 +163,12 @@
 		} else {
 			wFraction = 0.5;
 		}
-        [wFinderIcon
-            drawInRect: NSMakeRect(point.x, point.y, icon_width, icon_height)
-            fromRect: NSMakeRect(0, 0, [wFinderIcon size].width, [wFinderIcon size].height)
-            operation: NSCompositeSourceOver
-            fraction: wFraction
-        ];
+        [wFinderIcon drawInRect:NSMakeRect(point.x, point.y, icon_width, icon_height)
+                       fromRect:NSMakeRect(0, 0, [wFinderIcon size].width, [wFinderIcon size].height)
+                      operation:NSCompositeSourceOver
+                       fraction:wFraction
+                 respectFlipped:YES
+                          hints:NULL];
 	}
 }
 @end

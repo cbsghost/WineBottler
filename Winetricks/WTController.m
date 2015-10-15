@@ -76,7 +76,9 @@
 		
 		for (i = 0; i < [subPaths count]; i++) {
             if (![[NSFileManager defaultManager]
-                  copyItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
+                  //                  copyItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
+                  //                  toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", toPath, [subPaths objectAtIndex:i]]]
+                  linkItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
                   toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", toPath, [subPaths objectAtIndex:i]]]
                   error:nil]) {
 				NSLog(@"Can't copy from %@/%@ to %@", fromPath, [subPaths objectAtIndex:i], toPath);

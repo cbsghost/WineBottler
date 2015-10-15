@@ -58,8 +58,9 @@ echo "INSTALLER_IS_ZIPPED..........: $INSTALLER_IS_ZIPPED"
 echo "INSTALLER_NAME...............: $INSTALLER_NAME"
 echo "INSTALLER_ARGUMENTS..........: $INSTALLER_ARGUMENTS"
 echo "REMOVE_MONO..................: $REMOVE_MONO"
-echo "REMOVE_INSTALLERS............: $REMOVE_INSTALLERS"
+echo "REMOVE_GECKO.................: $REMOVE_GECKO"
 echo "REMOVE_USERS.................: $REMOVE_USERS"
+echo "REMOVE_INSTALLERS............: $REMOVE_INSTALLERS"
 echo "WINETRICKS_ITEMS.............: $WINETRICKS_ITEMS"
 echo "DLL_OVERRIDES................: $DLL_OVERRIDES"
 echo "EXECUTABLE_PATH..............: $EXECUTABLE_PATH"
@@ -83,8 +84,18 @@ export WINESERVER="$WINEPATH/wineserver"
 export WINEPREFIX=$BOTTLE/Contents/Resources/wineprefix
 export USERNAME="$USER"
 export WINEBOTTLER_TMP="/private/tmp/winebottler_$(date +%s)"
+export WINEDLLOVERRIDES=$DLL_OVERRIDES
 #export LANG=fr.UTF-8
 #export LC_CTYPE=fr_FR.UTF-8
+
+##########         Some overrides necessary bevore first launch        #########
+################################################################################
+[ "$REMOVE_MONO" == "1" ] && {
+    export WINEDLLOVERRIDES=$WINEDLLOVERRIDES"mscoree=;"
+}
+[ "$REMOVE_GECKO" == "1" ] && {
+    export WINEDLLOVERRIDES=$WINEDLLOVERRIDES"mshtml=;"
+}
 
 
 
@@ -669,22 +680,23 @@ export -f winebottlerProxy
 function winebottlerOverride () {
     echo "###BOTTLING### Registering native dlls..."
     [ "$DLL_OVERRIDES"  != "" ] && {
-        winebottlerOverrideDlls native,builtin $DLL_OVERRIDES
+cat > /tmp/override-dll.reg <<_EOF_
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+_EOF_
+
+        arr=$(echo $DLL_OVERRIDES | tr ";" "\n")
+        for x in $arr
+        do
+            sed -e 's/\(.*\)=\(.*\)/"\1"="\2"/' <<< "$x" >> /tmp/override-dll.reg
+        done
+        "$WINE" regedit /tmp/override-dll.reg
+        rm /tmp/override-dll.reg
+
     }
 }
 export -f winebottlerOverride
-
-
-
-##########                         Builtin                             #########
-################################################################################
-function winebottlerBuiltin () {
-    echo "###BOTTLING### Registering builtin dlls..."
-    [ "$DLL_BUILTINS"  != "" ] && {
-        winebottlerOverrideDlls builtin $DLL_BUILTINS
-    }
-}
-export -f winebottlerBuiltin
 
 
 
@@ -823,22 +835,50 @@ export -f winebottlerInstall
 ################################################################################
 function winebottlerCleanup () {
 
-    #remove mono?
+    #dont load mono
     [ "$REMOVE_MONO" == "1" ] && {
-        export WINETRICKS_ITEMS="remove_mono"
-        winebottlerWinetricks
-        wait
+        cat > /tmp/override-dll.reg <<_EOF_
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+"mscoree"=""
+
+_EOF_
+        "$WINE" regedit /tmp/override-dll.reg
+        rm /tmp/override-dll.reg
     }
+
+    #don't load gecko
+    [ "$REMOVE_GECKO" == "1" ] && {
+        cat > /tmp/override-dll.reg <<_EOF_
+REGEDIT4
+
+[HKEY_CURRENT_USER\Software\Wine\DllOverrides]
+"mshtml"=""
+
+_EOF_
+        "$WINE" regedit /tmp/override-dll.reg
+        rm /tmp/override-dll.reg
+    }
+
+    #remove user dir?
+    [ "$REMOVE_USERS" == "1" ] && {
+        find "$WINEPREFIX/drive_c/users" -maxdepth 1 ! -name "Public" -type d -exec rm -rf "{}" \;
+    }
+
+    cd "$WINEPREFIX/drive_c/windows"
 
     #remove installers?
     [ "$REMOVE_INSTALLERS" == "1" ] && {
-        rm -rf "$WINEPREFIX/drive_c/windows/installer/*"
+        rm -rf installer/*
     }
 
-    #remove userdir?
-    [ "$REMOVE_USERS" == "1" ] && {
-        find "$WINEPREFIX/drive_c/users" -maxdepth 1 ! -name "Public" -type d -exec rm -rf "{}" \;
-}
+    #remove temp, logs and printer drivers
+    rm -rf temp/*
+    rm -rf logs/*
+    rm -rf system32/spool/drivers/*
+
+    cd -
 
     # CLEANUP
     rm -rf "$WINEBOTTLER_TMP"

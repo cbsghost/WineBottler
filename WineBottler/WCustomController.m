@@ -52,6 +52,9 @@
     NSString *installerSwitches;
     NSString *exe;
     BOOL tNoMono;
+    BOOL tNoGecko;
+    BOOL tNoUsers;
+    BOOL tNoInstallers;
     BOOL selfcontained;
     NSArray *tCategoryTypes = [NSArray arrayWithObjects:
                                @"public.app-category.business",
@@ -76,6 +79,14 @@
                                @"public.app-category.video",
                                @"public.app-category.weather",
                                nil];
+    NSArray *tSystemVersionInfo = [NSArray arrayWithObjects:
+                               @"win95",
+                               @"win98",
+                               @"win2k",
+                               @"winxp",
+                               @"win2k3",
+                               @"win7",
+                               nil];
     
     template = nil;
     if ([prefixes indexOfSelectedItem] > 0)
@@ -97,6 +108,18 @@
     tNoMono = FALSE;
     if ([noMono state] == NSOffState)
         tNoMono = TRUE;
+    
+    tNoGecko = FALSE;
+    if ([noGecko state] == NSOffState)
+        tNoGecko = TRUE;
+    
+    tNoUsers = FALSE;
+    if ([noUsers state] == NSOnState)
+        tNoUsers = TRUE;
+    
+    tNoInstallers= FALSE;
+    if ([noInstallers state] == NSOnState)
+        tNoInstallers = TRUE;
     
     selfcontained = FALSE;
     if ([selfcontainedInstall state] == NSOnState)
@@ -120,7 +143,10 @@
                                 installerName:[[installer stringValue] lastPathComponent]
                            installerArguments:installerSwitches
                                        noMono:tNoMono
-                                   winetricks:[winetricksController winetricks]
+                                      noGecko:tNoGecko
+                                      noUsers:tNoUsers
+                                      noInstallers:tNoInstallers
+                                   winetricks:[NSString stringWithFormat:@"%@ %@", [tSystemVersionInfo objectAtIndex:[systemVersionInfo indexOfSelectedItem]], [winetricksController winetricks]]
                                     overrides:[overriedes stringValue]
                                           exe:exe
                                  exeArguments:[executableArguments stringValue]
