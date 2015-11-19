@@ -1641,7 +1641,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.52.1;
+				CURRENT_PROJECT_VERSION = 1.7.53;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
@@ -1660,7 +1660,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.52.1;
+				CURRENT_PROJECT_VERSION = 1.7.53;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
