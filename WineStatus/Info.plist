@@ -116,7 +116,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Icon.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.kronenberg.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -144,9 +144,5 @@
 	<string>1</string>
 	<key>SUFeedURL</key>
 	<string>http://winebottler.kronenberg.org/wine/appcast_1_5.php</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsapubkey.pem</string>
-	<key>SUScheduledCheckInterval</key>
-	<string>604800</string>
 </dict>
 </plist>

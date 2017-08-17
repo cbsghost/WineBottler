@@ -2,7 +2,7 @@
  * WTController.h
  * of the 'Winetricks' target in the 'WineBottler' project
  *
- * Copyright 2010 Mike Kronenberg
+ * Copyright 2010 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -33,8 +33,8 @@
 	IBOutlet WWinetricksController *winetricksController;
 	
 	KBAction *copyAction;
-	int filesToCopy;
-	int filesCopied;
+	NSUInteger filesToCopy;
+	NSUInteger filesCopied;
 	NSFileHandle *fileHandle;
 	NSMutableArray *runningExes;
 }

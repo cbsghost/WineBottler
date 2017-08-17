@@ -2,7 +2,7 @@
  * WWinetricksController.m
  * of the 'WBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -26,7 +26,8 @@
 
 //#define PREDEFINED_URL @"http://localhost/~mike/winebottler/"
 #define PREDEFINED_URL @"http://winebottler.kronenberg.org/winebottler/"
-#define WINETRICKS_URL @"http://winetricks.org/winetricks"
+//#define WINETRICKS_URL @"http://winetricks.org/winetricks" // don't use http
+#define WINETRICKS_URL @"https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
 #define APPSUPPORT_WINE [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/Wine/"]
 
 
@@ -215,7 +216,7 @@
 
 #pragma mark -
 #pragma mark NSTableView delegates
--(int)numberOfRowsInTableView:(NSTableView *)table
+-(NSUInteger)numberOfRowsInTableView:(NSTableView *)table
 {	
 	if (foundTricks)
 		return [foundTricks count];

@@ -2,7 +2,7 @@
  * WTController.m
  * of the 'Winetricks' target in the 'WineBottler' project
  *
- * Copyright 2010 Mike Kronenberg
+ * Copyright 2010 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -47,7 +47,7 @@
 
 - (void) copyPrefixFromPath:(NSString *)fromPath toPath:(NSString *)toPath withTitle:(NSString *)tTitle {
 	NSArray *subPaths;
-	int i;
+	NSUInteger i;
 
 	[[KBActionWindow sharedKBActionWindow] setTitle:[NSString stringWithFormat:@"Starting %@", tTitle]];
 	[[[KBActionWindow sharedKBActionWindow] window] setLevel:NSScreenSaverWindowLevel - 1];
@@ -76,10 +76,12 @@
 		
 		for (i = 0; i < [subPaths count]; i++) {
             if (![[NSFileManager defaultManager]
-                  //                  copyItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
-                  //                  toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", toPath, [subPaths objectAtIndex:i]]]
+                  copyItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
+                  toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", toPath, [subPaths objectAtIndex:i]]]
+/* maybe only link .so ?
                   linkItemAtURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", fromPath, [subPaths objectAtIndex:i]]]
                   toURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@/%@", toPath, [subPaths objectAtIndex:i]]]
+*/
                   error:nil]) {
 				NSLog(@"Can't copy from %@/%@ to %@", fromPath, [subPaths objectAtIndex:i], toPath);
 			}

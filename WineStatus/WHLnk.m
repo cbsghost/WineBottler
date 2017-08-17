@@ -122,7 +122,7 @@
 }
 
 
-- (int) flags
+- (NSUInteger) flags
 {
 	return flags;
 }

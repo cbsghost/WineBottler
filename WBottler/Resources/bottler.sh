@@ -23,6 +23,17 @@
 
 
 
+##########                 Might be stripped by macOS                 ##########
+################################################################################
+[ "$LD_LIBRARY_PATH" == "" ] && {
+    export LD_LIBRARY_PATH="$WINEPREFIX/lib":"/opt/X11/lib":"/usr/X11/lib"
+}
+[ "$DYLD_FALLBACK_LIBRARY_PATH" == "" ] && {
+    export DYLD_FALLBACK_LIBRARY_PATH="$WINEPREFIX/lib":"/usr/lib":"/opt/X11/lib:/usr/X11/lib"
+}
+
+
+
 ##########                         Debug Info                         ##########
 ################################################################################
 WINE_VERSION=$("$WINEPATH/wine" --version |sed 's/wine-//')
@@ -33,6 +44,7 @@ echo "Versions"
 echo "OS...........................: "$OSTYPE
 echo "Wine.........................: "$WINE_VERSION
 echo "WineBottler..................: "$(pl < "../../Info.plist" | grep CFBundleVersion | sed 's/    CFBundleVersion = "//g' | sed 's/";//g')
+echo "Wineticks....................: "$(sh "$HOME/Library/Application Support/Wine/winetricks" --version)
 echo ""
 echo "Environment"
 echo "PWD..........................: '"$(PWD)"'"
@@ -41,6 +53,7 @@ echo "USER.........................: $USER"
 echo "HOME.........................: $HOME"
 echo "COMPUTERNAME.................: $COMPUTERNAME"
 echo "BUNDLERESOURCEPATH...........: $BUNDLERESOURCEPATH"
+echo "WINEPREFIX...................: $WINEPREFIX"
 echo "WINEPATH.....................: $WINEPATH"
 echo "LD_LIBRARY_PATH..............: $LD_LIBRARY_PATH"
 echo "DYLD_FALLBACK_LIBRARY_PATH...: $DYLD_FALLBACK_LIBRARY_PATH"
@@ -81,7 +94,7 @@ sleep 1
 export PATH="$BUNDLERESOURCEPATH":"$BUNDLERESOURCEPATH/bin":"$WINEPATH":$PATH
 export WINE="$WINEPATH/wine"
 export WINESERVER="$WINEPATH/wineserver"
-export WINEPREFIX=$BOTTLE/Contents/Resources/wineprefix
+export WINEPREFIX="$BOTTLE/Contents/Resources/wineprefix"
 export USERNAME="$USER"
 export WINEBOTTLER_TMP="/private/tmp/winebottler_$(date +%s)"
 export WINEDLLOVERRIDES=$DLL_OVERRIDES
@@ -96,6 +109,13 @@ export WINEDLLOVERRIDES=$DLL_OVERRIDES
 [ "$REMOVE_GECKO" == "1" ] && {
     export WINEDLLOVERRIDES=$WINEDLLOVERRIDES"mshtml=;"
 }
+
+
+
+##########            Fix "new" rendering engine of freetype           #########
+################################################################################
+# https://bugs.winehq.org/show_bug.cgi?id=41639
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 
 
@@ -265,11 +285,12 @@ fi
 
 
 
-# exports (we keep X11 for fallback)
-export PATH="\$WINEUSRPATH/bin":\$PATH
-export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:"\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
-export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib:\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
+# exports (we keep X11 for fallback) fix new Freetype 2.7+ engine (https://bugs.winehq.org/show_bug.cgi?id=41639)
+export PATH="\$WINEUSRPATH/bin":"\$PATH"
+export LD_LIBRARY_PATH="\$LD_LIBRARY_PATH":"\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
+export DYLD_FALLBACK_LIBRARY_PATH="/usr/lib":"\$WINEUSRPATH/lib":"/opt/X11/lib":"/usr/X11/lib"
 export WINEPATH="\$WINEUSRPATH/bin"
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 #some default windows vars that might be missing ( http://ss64.com/nt/syntax-variables.html )
 [ -z "\$COMPUTERNAME" ] && export COMPUTERNAME="\$(/usr/sbin/scutil --get ComputerName)"
@@ -611,19 +632,19 @@ function winebottlerWinetricks () {
 		ln -s "$WINEPATH/wine" "$NOSPACE_PATH/wine"
 		ln -s "$(which cabextract)" "/$NOSPACE_PATH/cabextract"
 		ln -s "$WINEPREFIX" "$NOSPACE_PATH/wineprefix"
-		export PATH="$NOSPACE_PATH":$PATH
+		export PATH="$NOSPACE_PATH":"$PATH"
 		export WINE="$NOSPACE_PATH/wine"
 		export WINEPREFIX="$NOSPACE_PATH/wineprefix"
 
 		# APPLY winetricks
 		for W in $WINETRICKS_ITEMS; do
 			echo "###BOTTLING### installing $W"
-			winebottlerTry sh "$NOSPACE_PATH/winetricks.sh" --no-isolate $SILENT $W
+			winebottlerTry source "$NOSPACE_PATH/winetricks.sh" --no-isolate $SILENT $W
 		done
 		
-		# /WORKAROUND create "no-spaces environment"
+        # /WORKAROUND create "no-spaces environment"
+        export PATH="$PATHSAVE"
 		export WINE="$WINESAVE"
-		export PATH=$PATHSAVE
         export WINEPREFIX="$PREFSAVE"
         rm -rf "$NOSPACE_PATH"
 	}
@@ -712,6 +733,7 @@ export DISPLAY="$DISPLAY"
 export PATH="$NOSPACE_PATH":"$PATH"
 export USER="$USER"
 export HOME="$HOME"
+export FREETYPE_PROPERTIES="truetype:interpreter-version=35"
 
 
 

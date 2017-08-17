@@ -98,7 +98,7 @@ typedef struct _LOCATION_INFO {
 - (NSData*) getDataPIDL:(NSData *)lnkData location:(unsigned int *)lnkDataLoc;
 - (NSData*) getData:(NSData *)lnkData location:(unsigned int *)lnkDataLoc;
 - (NSString*) getString:(NSData *)lnkData location:(unsigned int *)lnkDataLoc;
-- (int) flags;
+- (NSUInteger) flags;
 - (void) setFlags:(NSData*)data;
 - (NSString *) localPath;
 - (NSString *) finalPath;

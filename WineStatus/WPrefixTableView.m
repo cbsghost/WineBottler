@@ -2,7 +2,7 @@
  * WPrefixTableView.h
  * of the 'WineStatus' target in the 'WineBottler' project
  *
- * Copyright 2007 Mike Kronenberg, inspired by transmission
+ * Copyright 2007 - 2017 Mike Kronenberg, inspired by transmission
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -56,7 +56,7 @@
     int i;
     BOOL clicked = false;
     pointClicked = [self convertPoint:[event locationInWindow] fromView:nil];
-    int row = [self rowAtPoint: pointClicked];
+    NSUInteger row = [self rowAtPoint: pointClicked];
     NSRect cellRect = [self frameOfCellAtColumn:2 row:row];
     
     for (i = 0; i < 2; i++) {
@@ -91,7 +91,7 @@
 	W_DEBUG(@"mouseUp");
 
     int i;
-	int row;
+	NSUInteger row;
 	NSRect cellRect;
     BOOL clicked;
 	

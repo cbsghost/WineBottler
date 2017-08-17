@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Msi.icns</string>
 	<key>CFBundleIdentifier</key>
-	<string>org.kronenberg.${PRODUCT_NAME:identifier}</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -33,11 +33,7 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	<key>SUFeedURL</key>
-	<string>http://winebottler.kronenberg.org/winebottler/appcast_1_5.php</string>
-	<key>SUPublicDSAKeyFile</key>
-	<string>dsapubkey.pem</string>
-	<key>SUScheduledCheckInterval</key>
-	<string>604800</string>
+	<key>T5UpdateUrl</key>
+	<string>http://winebottler.kronenberg.org/winebottler/version.php</string>
 </dict>
 </plist>

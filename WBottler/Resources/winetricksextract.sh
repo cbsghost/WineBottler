@@ -4,7 +4,7 @@
 # winetricksextract.sh
 # of the 'WBottler' target in the 'WineBottler' project
 #
-# Copyright 2009 Mike Kronenberg
+# Copyright 2009-2017 Mike Kronenberg
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -23,7 +23,7 @@
 
 
 
-##########     Merge our cutom verbs, then create plcist out of it     #########
+##########     Merge our cutom verbs, then create plist  out of it     #########
 ################################################################################
 w_metadata() {
     echo "\t<dict>\n\t\t<key>verb</key>\n\t\t<string>$1</string>\n\t\t<key>category</key>\n\t\t<string>$2</string>\n\t\t<key>status</key>\n\t\t<string>0</string>" >>"$WINETRICKS_TMP"
@@ -44,7 +44,7 @@ export WINETRICKS_TMP="/tmp/winetricks.plist"
 cat "$HOME/Library/Application Support/Wine/winetricks" "$HOME/Library/Application Support/Wine/customverbs" > /tmp/winetricks_custom
 
 # remove everything so that we can get the verbs
-tr '\n' '^' < /tmp/winetricks_custom | sed -e "s/\$USERNAME/$USER/g" -e 's/\$W_PROGRAMS_X86_WIN/\%ProgramFiles\%/g' -e 's/\$W_SYSTEM32_DLLS_WIN/C:\/windows\/system32/g' -e 's/^.*# Runtimes//' -e 's/#---- Derived Metadata ----.*WineBottler Custom Verbs//' | tr '^' '\n' > "/tmp/winetricks_verbs.sh"
+tr '\n' '^' < /tmp/winetricks_custom | sed -e "s/\$USERNAME/$USER/g" -e 's/\$W_PROGRAMS_X86_WIN/\%ProgramFiles\%/g' -e 's/\$W_SYSTEM32_DLLS_WIN/C:\/windows\/system32/g' -e 's/^.*# Runtimes//' -e 's/#---- Main Program ----.*WineBottler Custom Verbs//' | tr '^' '\n' > "/tmp/winetricks_verbs.sh"
 
 #start plist
 echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<array>' >"$WINETRICKS_TMP"

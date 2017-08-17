@@ -69,10 +69,6 @@
 		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
 		27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAE15AFEFA700B14674 /* WPrefixController.m */; };
 		27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AB015AFEFA700B14674 /* WPrefixTableView.m */; };
-		276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		2760801D1196E843004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
-		276080461196E98C004BEA36 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; };
-		276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 271B30170F9F435C003C41D7 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		2761BA2C1877A674006049E3 /* winemenubuilder.exe in Resources */ = {isa = PBXBuildFile; fileRef = 2761BA2B1877A674006049E3 /* winemenubuilder.exe */; };
 		276D9B6811B2AFDC00F23F0F /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
 		277950F111B2B99C00E2A76F /* WBottler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277950EF11B2B99C00E2A76F /* WBottler.xib */; };
@@ -119,8 +115,6 @@
 		27C52BF21095F4A900303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52BF11095F4A900303AA6 /* main.m */; };
 		27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF31095F4FC00303AA6 /* InfoPlist.strings */; };
 		27C52BFA1095F55F00303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF91095F55F00303AA6 /* Credits.html */; };
-		27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
-		27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27C52E7D109643C900303AA6 /* Sparkle.icns */; };
 		27D694A118B7C5CF00534E70 /* WineStatusIconTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */; };
 		27D694A618B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
 		27D694A718B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
@@ -245,7 +239,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				270BB95911B2A171000E25A2 /* WBottler.framework in Copy Frameworks */,
-				276080481196E997004BEA36 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +262,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				278CEB9111F580520082CD2C /* WBottler.framework in Copy Frameworks */,
-				276080191196E835004BEA36 /* Sparkle.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -283,7 +275,6 @@
 		270BB91511B29EEC000E25A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = WBottler/Info.plist; sourceTree = "<group>"; };
 		270BB94E11B2A146000E25A2 /* WBottler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WBottler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		270BB95D11B2A21A000E25A2 /* WBottler_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBottler_Prefix.pch; path = WBottler/WBottler_Prefix.pch; sourceTree = "<group>"; };
-		271B30170F9F435C003C41D7 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		2721D4640FA0BF64003802D1 /* bottler.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = bottler.sh; path = WBottler/Resources/bottler.sh; sourceTree = "<group>"; };
 		2721D4650FA0BF64003802D1 /* customprefix.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = customprefix.sh; path = WBottler/Resources/customprefix.sh; sourceTree = "<group>"; };
 		2721D4660FA0BF64003802D1 /* killIconTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = killIconTemplate.png; path = "Shared Resources/killIconTemplate.png"; sourceTree = "<group>"; };
@@ -347,7 +338,6 @@
 		27C52C261095F87800303AA6 /* WBottler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBottler.m; path = WBottler/WBottler.m; sourceTree = "<group>"; };
 		27C52C2D1095F87800303AA6 /* WWinetricksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WWinetricksController.h; path = WBottler/WWinetricksController.h; sourceTree = "<group>"; };
 		27C52C2E1095F87800303AA6 /* WWinetricksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WWinetricksController.m; path = WBottler/WWinetricksController.m; sourceTree = "<group>"; };
-		27C52E7D109643C900303AA6 /* Sparkle.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Sparkle.icns; path = "Shared Resources/Sparkle.icns"; sourceTree = "<group>"; };
 		27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = WineStatusIconTemplate.pdf; path = WineStatus/Resources/WineStatusIconTemplate.pdf; sourceTree = "<group>"; };
 		27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "killIconTemplate@2x.png"; path = "Shared Resources/killIconTemplate@2x.png"; sourceTree = "<group>"; };
 		27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "deleteIconTemplate@2x.png"; path = "Shared Resources/deleteIconTemplate@2x.png"; sourceTree = "<group>"; };
@@ -401,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				278CEB8C11F5804C0082CD2C /* WBottler.framework in Frameworks */,
-				2760801D1196E843004BEA36 /* Sparkle.framework in Frameworks */,
 				27C52A851093348F00303AA6 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,7 +410,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				270BB95611B2A16D000E25A2 /* WBottler.framework in Frameworks */,
-				276080461196E98C004BEA36 /* Sparkle.framework in Frameworks */,
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
 				27F3B6E711A5BF5500B11B00 /* WebKit.framework in Frameworks */,
 			);
@@ -435,7 +423,6 @@
 			children = (
 				27956F7915A523EF0076FF2E /* KBActionWindow.framework */,
 				27F3B6E611A5BF5500B11B00 /* WebKit.framework */,
-				271B30170F9F435C003C41D7 /* Sparkle.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -717,7 +704,6 @@
 				27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */,
 				2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */,
 				27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */,
-				27C52E7D109643C900303AA6 /* Sparkle.icns */,
 				277D3D61107A3D00004611C3 /* dsapubkey.pem */,
 				27029B2F107292740071F80B /* options_bg.png */,
 				27C3E1CB0FD01A93006D9B75 /* Msi.icns */,
@@ -872,7 +858,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					270BB94D11B2A146000E25A2 = {
 						DevelopmentTeam = S3B4DFK8MA;
@@ -959,7 +945,6 @@
 				27C52A531093106100303AA6 /* WineFolder.icns in Resources */,
 				27C52A5A1093113600303AA6 /* options_bg.png in Resources */,
 				27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */,
-				27C52E7E109643C900303AA6 /* Sparkle.icns in Resources */,
 				27D694A818B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -991,7 +976,6 @@
 				27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */,
 				27D694A918B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 				27C52BFA1095F55F00303AA6 /* Credits.html in Resources */,
-				27C52E7F109643C900303AA6 /* Sparkle.icns in Resources */,
 				27957E111A105D0000491DBA /* MainMenu.xib in Resources */,
 				27F3B9E111A6A29900B11B00 /* predefined.html in Resources */,
 				27F3BD8111AAFCE100B11B00 /* Programs.icns in Resources */,
@@ -1040,7 +1024,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#!/usr/bin/env bash\n\n\n\n#VERSION=0.28.0\n#VERSION=0.29.1\nVERSION=0.31.0\n#LIBPNG_VERSION=1.2.50\nLIBPNG_VERSION=1.6.7\nLIBPNG_NAME=libpng16.16.dylib\nWB_ICOUTILS_BUILDPATH=\"/tmp/icoutils_$VERSION\"\n\necho \"### Creating target directory ...\"\nif [ ! -d \"$TARGET_BUILD_DIR\" ]; then\nmkdir -p \"$TARGET_BUILD_DIR/\"\nfi\n\necho \"### Creating build directory ...\"\nif [ ! -d \"$WB_ICOUTILS_BUILDPATH\" ]; then\nmkdir -p \"$WB_ICOUTILS_BUILDPATH/prefix\"\nfi\ncd \"$WB_ICOUTILS_BUILDPATH\"\n\n\n\necho \"### Checking if $LIBPNG_NAME exists ...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$LIBPNG_NAME\" ]; then\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/libpng-\"$LIBPNG_VERSION\".tar.gz\" ]; then\necho \"### Downloading libpng-$LIBPNG_VERSION...\"\n#curl -L -f -s -O \"ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng12/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"http://download.sourceforge.net/libpng/libpng-\"$LIBPNG_VERSION\".tar.gz\"\ncurl -L -f -s -O \"http://download.sourceforge.net/libpng/libpng-\"$LIBPNG_VERSION\".tar.gz\"\nfi\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/prefix/libs/$LIBPNG_NAME\" ]; then\necho \"### Building libpng-$LIBPNG_VERSION ...\"\ntar xfz \"libpng-\"$LIBPNG_VERSION\".tar.gz\"\ncd \"libpng-\"$LIBPNG_VERSION\n./configure --enable-shared --enable-static --prefix=\"$WB_ICOUTILS_BUILDPATH/prefix\"\nmake && make install\ncd -\nfi\n\necho \"### Copying libpng-$LIBPNG_VERSION ...\"\ncp \"$WB_ICOUTILS_BUILDPATH/prefix/lib/$LIBPNG_NAME\" \"$TARGET_BUILD_DIR/\"\n\nfi\n\n\n\necho \"### Checking if icoutils-$VERSION exists ...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$TARGET_NAME\" ]; then\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION.tar.bz2\" ]; then\necho \"### Downloading icoutils-$VERSION.tar.bz2 ...\"\ncurl -L -f -s -O \"http://download.savannah.gnu.org/releases/icoutils/icoutils-$VERSION.tar.bz2\"\nfi\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" ]; then\necho \"### Building icoutils-$VERSION ...\"\ntar jxf \"icoutils-$VERSION.tar.bz2\"\ncd \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION\"\n./configure --disable-nls LDFLAGS=\"-L$WB_ICOUTILS_BUILDPATH/prefix/lib\" CFLAGS=\"-I$WB_ICOUTILS_BUILDPATH/prefix/include\"\nmake\ncd -\nfi\n\necho \"### Copying icoutils-$VERSION ...\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" \"$TARGET_BUILD_DIR/\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/icotool/icotool\" \"$TARGET_BUILD_DIR/\"\ninstall_name_tool -change \"$WB_ICOUTILS_BUILDPATH/prefix/lib/$LIBPNG_NAME\" $LIBPNG_NAME \"$TARGET_BUILD_DIR/icotool\"\n\nfi\n\necho \"done\"\n";
+			shellScript = "#!/usr/bin/env bash\n\n\n\n#VERSION=0.28.0\n#VERSION=0.29.1\nVERSION=0.31.0\n#LIBPNG_VERSION=1.2.50\n#LIBPNG_VERSION=1.6.7\nLIBPNG_VERSION=1.6.30\nLIBPNG_NAME=libpng16.16.dylib\nWB_ICOUTILS_BUILDPATH=\"/tmp/icoutils_$VERSION\"\n\necho \"### Creating target directory ...\"\nif [ ! -d \"$TARGET_BUILD_DIR\" ]; then\nmkdir -p \"$TARGET_BUILD_DIR/\"\nfi\n\necho \"### Creating build directory ...\"\nif [ ! -d \"$WB_ICOUTILS_BUILDPATH\" ]; then\nmkdir -p \"$WB_ICOUTILS_BUILDPATH/prefix\"\nfi\ncd \"$WB_ICOUTILS_BUILDPATH\"\n\n\n\necho \"### Checking if $LIBPNG_NAME exists ...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$LIBPNG_NAME\" ]; then\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/libpng-\"$LIBPNG_VERSION\".tar.gz\" ]; then\necho \"### Downloading libpng-$LIBPNG_VERSION...\"\n#curl -L -f -s -O \"ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng12/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"http://download.sourceforge.net/libpng/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"http://download.sourceforge.net/libpng/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-\"$LIBPNG_VERSION\".tar.gz\"\n#curl -L -f -s -O \"ftp://ftp-osl.osuosl.org/pub/libpng/src/libpng16/libpng-\"$LIBPNG_VERSION\".tar.gz\"\ncurl -L -f -s -O \"https://netix.dl.sourceforge.net/project/libpng/libpng16/\"$LIBPNG_VERSION\"/libpng-\"$LIBPNG_VERSION\".tar.gz\"\nfi\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/prefix/libs/$LIBPNG_NAME\" ]; then\necho \"### Building libpng-$LIBPNG_VERSION ...\"\ntar xfz \"libpng-\"$LIBPNG_VERSION\".tar.gz\"\nwait\ncd \"libpng-\"$LIBPNG_VERSION\n./configure --enable-shared --enable-static --prefix=\"$WB_ICOUTILS_BUILDPATH/prefix\"\nmake && make install\ncd -\nfi\n\necho \"### Copying libpng-$LIBPNG_VERSION ...\"\ncp \"$WB_ICOUTILS_BUILDPATH/prefix/lib/$LIBPNG_NAME\" \"$TARGET_BUILD_DIR/\"\n\nfi\n\n\n\necho \"### Checking if icoutils-$VERSION exists ...\"\nif [ ! -f \"$TARGET_BUILD_DIR/$TARGET_NAME\" ]; then\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION.tar.bz2\" ]; then\necho \"### Downloading icoutils-$VERSION.tar.bz2 ...\"\ncurl -L -f -s -O \"http://download.savannah.gnu.org/releases/icoutils/icoutils-$VERSION.tar.bz2\"\nfi\n\nif [ ! -f \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" ]; then\necho \"### Building icoutils-$VERSION ...\"\ntar jxf \"icoutils-$VERSION.tar.bz2\"\ncd \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION\"\n./configure --disable-nls LDFLAGS=\"-L$WB_ICOUTILS_BUILDPATH/prefix/lib\" CFLAGS=\"-I$WB_ICOUTILS_BUILDPATH/prefix/include\"\nmake\ncd \"$WB_ICOUTILS_BUILDPATH\"\nfi\n\necho \"### Copying icoutils-$VERSION ...\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/$TARGET_NAME/$TARGET_NAME\" \"$TARGET_BUILD_DIR/\"\ncp \"$WB_ICOUTILS_BUILDPATH/icoutils-$VERSION/icotool/icotool\" \"$TARGET_BUILD_DIR/\"\ninstall_name_tool -change \"$WB_ICOUTILS_BUILDPATH/prefix/lib/$LIBPNG_NAME\" $LIBPNG_NAME \"$TARGET_BUILD_DIR/icotool\"\n\nfi\n\necho \"done\"\n";
 		};
 		277D3BB71079FADF004611C3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1327,7 +1311,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1349,8 +1333,8 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = WBottler;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1358,7 +1342,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
+				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1379,8 +1363,8 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = WBottler;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1448,7 +1432,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1467,6 +1450,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Wine;
 			};
 			name = Debug;
@@ -1475,7 +1459,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1493,6 +1476,7 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = Wine;
 			};
 			name = Release;
@@ -1545,7 +1529,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1564,8 +1547,8 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Winetricks;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1573,7 +1556,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1591,8 +1573,8 @@
 					"-framework",
 					AppKit,
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = Winetricks;
-				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -1600,7 +1582,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1613,6 +1594,7 @@
 				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
 				INFOPLIST_FILE = WineBottler/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = WineBottler;
 			};
 			name = Debug;
@@ -1621,7 +1603,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1632,6 +1613,7 @@
 				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
 				INFOPLIST_FILE = WineBottler/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = WineBottler;
 			};
 			name = Release;
@@ -1639,16 +1621,32 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.53;
+				CURRENT_PROJECT_VERSION = 1.8.3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
 				VALID_ARCHS = "i386 x86_64";
@@ -1658,12 +1656,27 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
-				CURRENT_PROJECT_VERSION = 1.7.53;
+				CURRENT_PROJECT_VERSION = 1.8.3;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_VERSION = "";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = NO;

@@ -2,7 +2,7 @@
  * WBottlerController.m
  * of the 'WineBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -127,6 +127,50 @@
 }
 
 
+- (void) checkUpdate:(id)sender {
+    NSString *string;
+    NSString *oldVersion;
+    NSMutableAttributedString * link;
+    NSAlert *alert;
+    NSTextView *av;
+    
+    NSLog(@"WineBottler: checkUpdate1: %@", NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"]);
+    string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@latest", PREDEFINED_URL ]]];
+    if (string && [string length]) {
+        NSLog(@"WineBottler: checkUpdate2: %@", string);
+        if (![string isEqualToString:NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"]]) {
+            oldVersion = [NSString stringWithFormat:@"Your are using WineBottler %@ now.\nDownload WineBottler %@ at\n\nwinebottler.kronenberg.org.", NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"], string];
+            link = [[NSMutableAttributedString alloc] initWithString:oldVersion];
+            [link addAttribute:NSLinkAttributeName value: @"http:/winebottler.kronenberg.org" range: NSMakeRange([oldVersion length] - 27, 26)];
+            av = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, 250, 50)];
+            [av insertText:link];
+            [av setDrawsBackground:NO];
+            alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"WineBottler %@ of available", string]
+                                    defaultButton:@"OK"
+                                  alternateButton:nil
+                                      otherButton:nil
+                        informativeTextWithFormat:@""];
+            alert.accessoryView = av;
+            [alert runModal];
+        } else if (![sender isEqual:self]) {
+            alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"You are running the latest version of WineBottler"]
+                                    defaultButton:@"OK"
+                                  alternateButton:nil
+                                      otherButton:nil
+                        informativeTextWithFormat:@""];
+            [alert runModal];
+        }
+    } else {
+        alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Can't connect to winebottler.kronenberg.org!"]
+                                defaultButton:@"OK"
+                              alternateButton:nil
+                                  otherButton:nil
+                    informativeTextWithFormat:@""];
+        [alert runModal];
+    }
+}
+
+
 -(void) awakeFromNib
 {
     NSString *string;
@@ -152,6 +196,11 @@
     }
     
     [updatePanel makeKeyAndOrderFront:self];
+
+    // check for update
+    if([[NSUserDefaults standardUserDefaults] boolForKey:@"updateCheck"]) {
+        [self checkUpdate: self];
+    }
     
     // update showcase
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:[NSString stringWithFormat:@"%@winebottler.plist", PREDEFINED_URL ]]];
@@ -441,7 +490,7 @@
 #pragma mark prefix
 - (IBAction) prefixQuery:(id)sender
 {
-	int i;
+	NSUInteger i;
 	NSUserDefaults *userDefaults;
 	NSMutableArray *knownPrefixes;
 	NSPredicate *predicate;
@@ -450,7 +499,7 @@
 	
 	// remove obsolete entries
 	knownPrefixes = [[[userDefaults objectForKey:@"knownPrefixes"] mutableCopy] autorelease];
-	for (i = [knownPrefixes count] -1; i > -1; i--) {
+	for (i = [knownPrefixes count] - 1; i > -1; i--) {
 		if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/WineBottler.id", [knownPrefixes objectAtIndex:i]]]) {
 			[knownPrefixes removeObjectAtIndex:i];
 		}

@@ -2,7 +2,7 @@
  * WPrefixController.h
  * of the 'WineStatus' target in the 'WineBottler' project
  *
- * Copyright 2010 Mike Kronenberg
+ * Copyright 2010 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -47,7 +47,7 @@
 - (IBAction) changePrefix:(id)sender;
 - (IBAction) search:(id)sender;
 - (IBAction) createNewPrefix:(id)sender;
-- (void) deleteAtRow:(int)row;
+- (void) deleteAtRow:(NSUInteger)row;
 - (void) deletePrefixAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-- (void) showInFinderAtRow:(int)row;
+- (void) showInFinderAtRow:(NSUInteger)row;
 @end

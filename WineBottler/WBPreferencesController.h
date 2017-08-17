@@ -2,7 +2,7 @@
  * WBPreferencesController.h
  * of the 'WineBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,10 +22,13 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "WBottlerController.h"
 
 
 
 @interface WBPreferencesController : NSObject <NSWindowDelegate, NSToolbarDelegate> {
+    IBOutlet WBottlerController* bottlerController;
+    
 	IBOutlet NSWindow *preferencesWindow;
 	IBOutlet NSView *viewGeneral;
 	IBOutlet NSView *viewProxies;
@@ -46,6 +49,8 @@
 	IBOutlet NSTextField *proxiesPortHttps;
 	IBOutlet NSTextField *proxiesPortFtp;
 	IBOutlet NSTextField *proxiesPortSocks5;
+    
+    IBOutlet NSButton *updateCheck;
 	
 	NSUserDefaults *userDefaults;
 }

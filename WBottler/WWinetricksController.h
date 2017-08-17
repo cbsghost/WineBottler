@@ -2,7 +2,7 @@
  * WWinetricksController.h
  * of the 'WBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

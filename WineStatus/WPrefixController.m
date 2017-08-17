@@ -2,7 +2,7 @@
  * WPrefixController.m
  * of the 'WineStatus' target in the 'WineBottler' project
  *
- * Copyright 2010 Mike Kronenberg
+ * Copyright 2010 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -80,7 +80,7 @@
 #pragma mark NSQuery callback
 - (IBAction) queryForPrefixes:(id)sender
 {
-	int i;
+	NSUInteger i;
 	NSUserDefaults *userDefaults;
 	NSString *path;
 	NSMutableArray *knownPrefixes;
@@ -167,7 +167,7 @@
 
 #pragma mark -
 #pragma mark NSTableView delegates
--(int)numberOfRowsInTableView:(NSTableView *)table
+-(NSUInteger)numberOfRowsInTableView:(NSTableView *)table
 {	
 	return [foundPrefixes count];
 }
@@ -290,7 +290,7 @@
 }
 
 
-- (void) deleteAtRow:(int)row
+- (void) deleteAtRow:(NSUInteger)row
 {
 	NSRange range;
 	NSString *path;
@@ -352,7 +352,7 @@
 }
 
 
-- (void) showInFinderAtRow:(int)row
+- (void) showInFinderAtRow:(NSUInteger)row
 {
 	NSRange range;
 	NSString *path;

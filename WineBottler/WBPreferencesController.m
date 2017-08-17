@@ -2,7 +2,7 @@
  * WBPreferencesController.m
  * of the 'WineBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -231,6 +231,13 @@
 
 - (IBAction) showUpdate:(id)sender
 {
+    // set options
+    [userDefaults synchronize];
+    if ([userDefaults boolForKey:@"updateCheck"]) {
+        [updateCheck setState:NSOnState];
+    } else {
+        [updateCheck setState:NSOffState];
+    }
 	
 	// backup views
 	if ([viewGeneral superview]) {
@@ -239,7 +246,7 @@
 	} else if ([viewProxies superview]) {
 		[viewProxies retain];
 		[viewProxies removeFromSuperview];
-	}
+    }
 	
 	// show view
 	[preferencesWindow setTitle:NSLocalizedStringFromTable(@"WBPreferencesController:showUpdate:WindowTitle", @"Localizable", @"WBPreferencesController")];
@@ -255,6 +262,23 @@
 }
 
 
+- (IBAction) checkForUpdateAtStartup:(id)sender
+{
+    if ([explanationPrefix state] == NSOffState) {
+        [userDefaults setBool:FALSE forKey:@"updateCheck"];
+    } else {
+        [userDefaults setBool:TRUE forKey:@"updateCheck"];
+    }
+    [userDefaults synchronize];
+}
+
+
+- (IBAction) checkForUpdate:(id)sender
+{
+    [bottlerController checkUpdate:self];
+}
+
+
 
 #pragma mark -
 #pragma mark NSToolbar Delegates
@@ -266,21 +290,21 @@
 		[toolbarItem setLabel:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:General:setLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setPaletteLabel: NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:General:setPaletteLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setToolTip:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:General:setToolTip", @"Localizable", @"WBPreferencesController")];
-		[toolbarItem setImage: [NSImage imageNamed: @"Msi.icns"]];
+		[toolbarItem setImage: [NSImage imageNamed: NSImageNamePreferencesGeneral]];
 		[toolbarItem setTarget: self];
 		[toolbarItem setAction: @selector( showGeneral: )];
 	} else if ([itemIdent isEqual: @"Proxies"]) {
 		[toolbarItem setLabel:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Proxies:setLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setPaletteLabel: NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Proxies:setPaletteLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setToolTip:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Proxies:setToolTip", @"Localizable", @"WBPreferencesController")];
-		[toolbarItem setImage: [NSImage imageNamed: @"Proxies.icns"]];
+		[toolbarItem setImage: [NSImage imageNamed: NSImageNameNetwork]];
 		[toolbarItem setTarget: self];
 		[toolbarItem setAction: @selector( showProxies: )];
 	} else if ([itemIdent isEqual: @"Update"]) {
 		[toolbarItem setLabel:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Update:setLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setPaletteLabel: NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Update:setPaletteLabel", @"Localizable", @"WBPreferencesController")];
 		[toolbarItem setToolTip:NSLocalizedStringFromTable(@"WBPreferencesController:TootlbarItem:Update:setToolTip", @"Localizable", @"WBPreferencesController")];
-		[toolbarItem setImage: [NSImage imageNamed: @"Sparkle.icns"]];
+		[toolbarItem setImage: [NSImage imageNamed: NSImageNameAdvanced]];
 		[toolbarItem setTarget: self];
 		[toolbarItem setAction: @selector( showUpdate: )];
 	} else {

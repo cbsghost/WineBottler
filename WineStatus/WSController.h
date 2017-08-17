@@ -2,7 +2,7 @@
  * WController.h
  * of the 'WineStatus' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -83,7 +83,6 @@
 - (void) changePrefixAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
 - (void) killWine;
 - (BOOL) startApplication:(NSArray *)tArguments;
-- (void) updateStatusItemMenu;
 - (void) checkATaskStatus:(NSNotification *)aNotification;
 
 - (NSFileHandle *) fileHandle;

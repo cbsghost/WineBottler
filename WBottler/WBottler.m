@@ -2,7 +2,7 @@
  * WBottler.m
  * of the 'WBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 Mike Kronenberg
+ * Copyright 2009 - 2017 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -75,7 +75,7 @@
 
 - (void) findWine
 {
-	int i;
+	NSUInteger i;
 	NSArray *winePaths;
 	NSFileManager *fileManager;
 	NSAlert *alert;
@@ -281,11 +281,12 @@
 		// Pipes
 		[task setStandardOutput:stdPipe];
 		[task setStandardError:errPipe];
-		
+        NSLog([[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]);
 		environment = [NSMutableDictionary dictionaryWithObjects:
 							  [NSArray arrayWithObjects:
-							   [NSString stringWithFormat:@"%@/bin:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"], [[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"]],
-							   [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPATH
+                               [NSString stringWithFormat:@"%@/bin:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"], [[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"]],
+                               [NSString stringWithFormat:@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPREFIX,
+                               [NSString stringWithFormat:@"%@/bin", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // WINEPATH
 							   [NSString stringWithFormat:@"%@/lib:/usr/lib:/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // DYLD_FALLBACK_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/lib:/opt/X11/lib:/usr/X11/lib", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // LD_LIBRARY_PATH
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
@@ -318,6 +319,7 @@
 														   forKeys:
 							  [NSArray arrayWithObjects:
                                @"PATH",
+                               @"WINEPREFIX",
 							   @"WINEPATH",
 							   @"DYLD_FALLBACK_LIBRARY_PATH",
 							   @"LD_LIBRARY_PATH",
