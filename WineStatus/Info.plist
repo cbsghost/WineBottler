@@ -143,6 +143,6 @@
 	<key>NSUIElement</key>
 	<string>1</string>
 	<key>SUFeedURL</key>
-	<string>http://winebottler.kronenberg.org/wine/appcast_1_5.php</string>
+	<string>https://winebottler.kronenberg.org/wine/appcast_1_5.php</string>
 </dict>
 </plist>

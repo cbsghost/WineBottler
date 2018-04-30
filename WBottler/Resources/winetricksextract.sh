@@ -4,7 +4,7 @@
 # winetricksextract.sh
 # of the 'WBottler' target in the 'WineBottler' project
 #
-# Copyright 2009-2017 Mike Kronenberg
+# Copyright 2009-2018 Mike Kronenberg
 #
 # This library is free software; you can redistribute it and/or
 # modify it under the terms of the GNU Lesser General Public
@@ -50,7 +50,9 @@ tr '\n' '^' < /tmp/winetricks_custom | sed -e "s/\$USERNAME/$USER/g" -e 's/\$W_P
 echo '<?xml version="1.0" encoding="UTF-8"?>\n<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">\n<plist version="1.0">\n<array>' >"$WINETRICKS_TMP"
 
 # add verbs
-source "/tmp/winetricks_verbs.sh"
+sed -e ':a' -e 'N' -e '$!ba' -e 's/\\\s*\n/ /g' "/tmp/winetricks_verbs.sh" | grep w_metadata > "/tmp/winetricks_verbs2.sh"
+source "/tmp/winetricks_verbs2.sh"
+#source $(sed -e ':a' -e 'N' -e '$!ba' -e 's/\\\s*\n/ /g' "/tmp/winetricks_verbs.sh" | grep w_metadata)
 
 #end plist
 echo "</array>\n</plist>" >>"$WINETRICKS_TMP"
@@ -70,8 +72,8 @@ mv "$WINETRICKS_TMP"2 "$WINETRICKS_PLIST"
 
 #cleanup
 rm "$WINETRICKS_TMP"
-rm /tmp/winetricks_custom
-rm /tmp/winetricks_verbs.sh
+#rm /tmp/winetricks_custom
+#rm /tmp/winetricks_verbs.sh
 
 
 exit 0

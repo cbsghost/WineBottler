@@ -2,7 +2,7 @@
  * WBottlerController.m
  * of the 'WineBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 - 2017 Mike Kronenberg
+ * Copyright 2009 - 2018 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,7 +24,7 @@
 #import "WBottlerController.h"
 
 //#define PREDEFINED_URL @"http://localhost/~mike/winebottler/"
-#define PREDEFINED_URL @"http://winebottler.kronenberg.org/winebottler/"
+#define PREDEFINED_URL @"https://winebottler.kronenberg.org/winebottler/"
 #define APPSUPPORT_WINE [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/Wine/"]
 #define APPSUPPORT_WINEBOTTLER [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/WineBottler/"]
 
@@ -141,7 +141,7 @@
         if (![string isEqualToString:NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"]]) {
             oldVersion = [NSString stringWithFormat:@"Your are using WineBottler %@ now.\nDownload WineBottler %@ at\n\nwinebottler.kronenberg.org.", NSBundle.mainBundle.infoDictionary[@"CFBundleVersion"], string];
             link = [[NSMutableAttributedString alloc] initWithString:oldVersion];
-            [link addAttribute:NSLinkAttributeName value: @"http:/winebottler.kronenberg.org" range: NSMakeRange([oldVersion length] - 27, 26)];
+            [link addAttribute:NSLinkAttributeName value: @"https://winebottler.kronenberg.org" range: NSMakeRange([oldVersion length] - 27, 26)];
             av = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, 250, 50)];
             [av insertText:link];
             [av setDrawsBackground:NO];
@@ -568,6 +568,16 @@
 	[self prefixSearch:self];
 }
 
+- (NSString *) iconToBase64:(NSString *)icon {
+    NSArray *keys = [NSArray arrayWithObject:@"NSImageCompressionFactor"];
+    NSArray *objects = [NSArray arrayWithObject:@"1.0"];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+
+    NSImage *iconImage = [[NSImage alloc] initWithContentsOfFile:icon];
+    NSBitmapImageRep *iconImageBitmapRep = [[NSBitmapImageRep alloc] initWithData:[iconImage TIFFRepresentation]];
+    NSData *iconData = [iconImageBitmapRep representationUsingType:NSPNGFileType properties:dictionary];
+    return [NSString stringWithFormat:@"data:image/png;base64,%@", [iconData base64EncodedStringWithOptions:NULL]];
+}
 
 - (IBAction) prefixSearch:(id)sender
 {
@@ -602,9 +612,10 @@
                 } else {
                     icon = [NSString stringWithFormat:@"%@/Application.icns", [[NSBundle mainBundle] resourcePath]];
                 }
+                
                 [items appendFormat:NSLocalizedStringFromTable(@"WBottlerController:prefix:item", @"Localizable", @"WBottlerController"),
                  path,
-                 icon,
+                 [self iconToBase64:icon],
                  name,
                  path,
                  path,
@@ -617,7 +628,7 @@
                 name = path;
                 icon = [NSString stringWithFormat:@"%@/Programs.icns", [[NSBundle mainBundle] resourcePath]];
                 [lonePrefixes appendFormat:NSLocalizedStringFromTable(@"WBottlerController:prefix:prefix", @"Localizable", @"WBottlerController"),
-                 icon,
+                 [self iconToBase64:icon],
                  name,
                  path,
                  path];

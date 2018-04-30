@@ -34,6 +34,6 @@
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>T5UpdateUrl</key>
-	<string>http://winebottler.kronenberg.org/winebottler/version.php</string>
+	<string>https://winebottler.kronenberg.org/winebottler/version.php</string>
 </dict>
 </plist>

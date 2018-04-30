@@ -2,7 +2,7 @@
  * WWinetricksController.m
  * of the 'WBottler' target in the 'WineBottler' project
  *
- * Copyright 2009 - 2017 Mike Kronenberg
+ * Copyright 2009 - 2018 Mike Kronenberg
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,7 +25,7 @@
 #import "WBottler.h"
 
 //#define PREDEFINED_URL @"http://localhost/~mike/winebottler/"
-#define PREDEFINED_URL @"http://winebottler.kronenberg.org/winebottler/"
+#define PREDEFINED_URL @"https://winebottler.kronenberg.org/winebottler/"
 //#define WINETRICKS_URL @"http://winetricks.org/winetricks" // don't use http
 #define WINETRICKS_URL @"https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
 #define APPSUPPORT_WINE [[NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/Wine/"]
@@ -111,6 +111,7 @@
  
     // get a copy of the winetricks
     string = [self stringWithContentsOfURLNoCache:[NSURL URLWithString:WINETRICKS_URL]];
+    string = [string stringByReplacingOccurrencesOfString:@"sort -V" withString:@"sort -t. -k 1,1n -k 2,2n -k 3,3n"];
     if (string) {
         if (![string writeToURL:[NSURL fileURLWithPath:[NSString stringWithFormat:@"%@winetricks", APPSUPPORT_WINE]] atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
             NSLog(@"%@", error);
