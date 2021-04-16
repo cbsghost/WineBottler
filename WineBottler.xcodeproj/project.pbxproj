@@ -296,7 +296,6 @@
 		27596AAF15AFEFA700B14674 /* WPrefixTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WPrefixTableView.h; path = WineStatus/WPrefixTableView.h; sourceTree = "<group>"; };
 		27596AB015AFEFA700B14674 /* WPrefixTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WPrefixTableView.m; path = WineStatus/WPrefixTableView.m; sourceTree = "<group>"; };
 		2761BA2B1877A674006049E3 /* winemenubuilder.exe */ = {isa = PBXFileReference; lastKnownFileType = file; name = winemenubuilder.exe; path = WBottler/Resources/winemenubuilder.exe; sourceTree = "<group>"; };
-		277950F011B2B99C00E2A76F /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WBottler/Resources/English.lproj/WBottler.xib; sourceTree = "<group>"; };
 		277D3B381079E9C1004611C3 /* wrestool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = wrestool; sourceTree = BUILT_PRODUCTS_DIR; };
 		277D3BB21079FAD0004611C3 /* cabextract */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = cabextract; sourceTree = BUILT_PRODUCTS_DIR; };
 		277D3C59107A1A9B004611C3 /* icon.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = icon.sh; path = WBottler/Resources/icon.sh; sourceTree = "<group>"; };
@@ -313,8 +312,6 @@
 		27C52A2210930DD900303AA6 /* Wine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27C52A2410930DD900303AA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = WineStatus/Info.plist; sourceTree = "<group>"; };
 		27C52A4210930FF800303AA6 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WineStatus/Resources/Credits.html; sourceTree = "<group>"; };
-		27C52A4510930FF800303AA6 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
-		27C52A4710930FF800303AA6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
 		27C52A5B109311A500303AA6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WineStatus/main.m; sourceTree = "<group>"; };
 		27C52A5C109311A500303AA6 /* WineStatus_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineStatus_Prefix.pch; path = WineStatus/WineStatus_Prefix.pch; sourceTree = "<group>"; };
 		27C52A72109332E100303AA6 /* WSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WSController.h; path = WineStatus/WSController.h; sourceTree = "<group>"; };
@@ -331,8 +328,6 @@
 		27C52BE21095F46E00303AA6 /* WCustomController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WCustomController.m; path = WineBottler/WCustomController.m; sourceTree = "<group>"; };
 		27C52BE31095F46E00303AA6 /* WineBottler_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WineBottler_Prefix.pch; path = WineBottler/WineBottler_Prefix.pch; sourceTree = "<group>"; };
 		27C52BF11095F4A900303AA6 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = WineBottler/main.m; sourceTree = "<group>"; };
-		27C52BF41095F4FC00303AA6 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = WineBottler/English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		27C52BF61095F4FC00303AA6 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = WineBottler/English.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		27C52BF91095F55F00303AA6 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Credits.html; path = WineBottler/Resources/Credits.html; sourceTree = "<group>"; };
 		27C52C251095F87800303AA6 /* WBottler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WBottler.h; path = WBottler/WBottler.h; sourceTree = "<group>"; };
 		27C52C261095F87800303AA6 /* WBottler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBottler.m; path = WBottler/WBottler.m; sourceTree = "<group>"; };
@@ -353,11 +348,7 @@
 		27F3BCB711AA9DF600B11B00 /* WBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WBWebViewController.m; path = WineBottler/WBWebViewController.m; sourceTree = "<group>"; };
 		27F3BD8011AAFCE100B11B00 /* Programs.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Programs.icns; path = WineBottler/Resources/Programs.icns; sourceTree = "<group>"; };
 		27F3BD8E11AAFDE700B11B00 /* Application.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Application.icns; path = WineBottler/Resources/Application.icns; sourceTree = "<group>"; };
-		27F3BDCE11AB058C00B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = WineBottler/English.lproj/Localizable.strings; sourceTree = "<group>"; };
 		27F3BF8B11AD511C00B11B00 /* Winetricks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Winetricks.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		27F3BFA411AD523500B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
-		27F3BFA611AD523500B11B00 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = Localizable.strings; sourceTree = "<group>"; };
-		27F3BFA811AD523500B11B00 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
 		27F3BFAD11AD524D00B11B00 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Winetricks/main.m; sourceTree = "<group>"; };
 		27F3BFAE11AD524D00B11B00 /* Winetricks_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Winetricks_Prefix.pch; path = Winetricks/Winetricks_Prefix.pch; sourceTree = "<group>"; };
 		27F3BFB911AD542900B11B00 /* WTController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WTController.h; path = Winetricks/WTController.h; sourceTree = "<group>"; };
@@ -372,6 +363,18 @@
 		27FF12F315A6B27C00B21AEE /* programs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "programs@2x.png"; path = "WineBottler/Resources/programs@2x.png"; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		577A414F262A1DED006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WBottler/Resources/Base.lproj/WBottler.xib; sourceTree = "<group>"; };
+		577A4150262A1DEE006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A4151262A1DEF006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A4152262A1DEF006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WineBottler/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A4153262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		577A4154262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		577A4155262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WineBottler/en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A4156262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		577A4157262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A4158262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		577A4159262A1DF3006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		577A415A262A1DF3006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WineBottler/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* WineBottler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineBottler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -858,7 +861,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 1240;
 				TargetAttributes = {
 					270BB94D11B2A146000E25A2 = {
 						DevelopmentTeam = S3B4DFK8MA;
@@ -881,13 +884,14 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "WineBottler" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 1;
 			knownRegions = (
-				English,
-				Japanese,
-				French,
-				German,
+				Base,
+				en,
+				fr,
+				ja,
+				de,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* WineBottler */;
 			projectDirPath = "";
@@ -1103,7 +1107,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# add wine\n\n#ditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.app\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/Wine_bin.app\"\n#sed s/<plist>/<xxxx>/ wine > wine\nditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\nLANG=C sed \"s/<plist/xxxxxx/\" \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources/bin/wine\" > \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/bin/wine\"\n#cp \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/MacOS/startwine\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/startwine\"";
+			shellScript = "# add wine\n\n#ditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.app\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/Wine_bin.app\"\n#sed s/<plist>/<xxxx>/ wine > wine\n#ditto \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/\"\n#LANG=C sed \"s/<plist/xxxxxx/\" \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/Resources/bin/wine\" > \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/Resources/bin/wine\"\n#cp \"dmg/Wine_${CURRENT_PROJECT_VERSION}.bundle/Contents/MacOS/startwine\" \"$TARGET_BUILD_DIR/$PRODUCT_NAME.app/Contents/MacOS/startwine\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1214,7 +1218,7 @@
 		277950EF11B2B99C00E2A76F /* WBottler.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				277950F011B2B99C00E2A76F /* English */,
+				577A414F262A1DED006F94A2 /* Base */,
 			);
 			name = WBottler.xib;
 			sourceTree = "<group>";
@@ -1222,7 +1226,7 @@
 		27C52A4410930FF800303AA6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27C52A4510930FF800303AA6 /* English */,
+				577A4156262A1DF2006F94A2 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1230,7 +1234,8 @@
 		27C52A4610930FF800303AA6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27C52A4710930FF800303AA6 /* English */,
+				577A4151262A1DEF006F94A2 /* Base */,
+				577A4157262A1DF2006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1238,7 +1243,7 @@
 		27C52BF31095F4FC00303AA6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27C52BF41095F4FC00303AA6 /* English */,
+				577A4153262A1DF1006F94A2 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1246,7 +1251,8 @@
 		27C52BF51095F4FC00303AA6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27C52BF61095F4FC00303AA6 /* English */,
+				577A4152262A1DEF006F94A2 /* Base */,
+				577A4155262A1DF1006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1254,7 +1260,7 @@
 		27F3BDCD11AB058C00B11B00 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27F3BDCE11AB058C00B11B00 /* English */,
+				577A4154262A1DF1006F94A2 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1262,7 +1268,7 @@
 		27F3BFA311AD523500B11B00 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27F3BFA411AD523500B11B00 /* English */,
+				577A4158262A1DF2006F94A2 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1270,7 +1276,7 @@
 		27F3BFA511AD523500B11B00 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27F3BFA611AD523500B11B00 /* English */,
+				577A4159262A1DF3006F94A2 /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -1278,7 +1284,8 @@
 		27F3BFA711AD523500B11B00 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				27F3BFA811AD523500B11B00 /* English */,
+				577A4150262A1DEE006F94A2 /* Base */,
+				577A415A262A1DF3006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1289,6 +1296,7 @@
 		2702ECDB1080BC49009B2405 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1300,6 +1308,7 @@
 		2702ECDC1080BC49009B2405 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1312,6 +1321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
@@ -1343,6 +1353,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
@@ -1373,8 +1384,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = "";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1388,9 +1401,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
 				PRODUCT_NAME = wrestool;
@@ -1403,7 +1418,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_MODEL_TUNING = G5;
@@ -1418,7 +1434,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
@@ -1433,6 +1450,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1460,6 +1479,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1485,6 +1506,7 @@
 		27C52AFF10933F9D00303AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1496,6 +1518,7 @@
 		27C52B0010933F9D00303AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1507,6 +1530,7 @@
 		27C52B8E1093660400303AA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1518,6 +1542,7 @@
 		27C52B8F1093660400303AA6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1530,6 +1555,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1557,6 +1584,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1583,6 +1612,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1604,6 +1635,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1623,16 +1656,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1.8.6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1646,7 +1688,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1658,16 +1700,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "Developer ID Application: Tapenta GmbH";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CURRENT_PROJECT_VERSION = 1.8.6;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
@@ -1679,7 +1730,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;

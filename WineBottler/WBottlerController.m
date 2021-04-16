@@ -576,7 +576,7 @@
     NSImage *iconImage = [[NSImage alloc] initWithContentsOfFile:icon];
     NSBitmapImageRep *iconImageBitmapRep = [[NSBitmapImageRep alloc] initWithData:[iconImage TIFFRepresentation]];
     NSData *iconData = [iconImageBitmapRep representationUsingType:NSPNGFileType properties:dictionary];
-    return [NSString stringWithFormat:@"data:image/png;base64,%@", [iconData base64EncodedStringWithOptions:NULL]];
+    return [NSString stringWithFormat:@"data:image/png;base64,%@", [iconData base64EncodedStringWithOptions:0]];
 }
 
 - (IBAction) prefixSearch:(id)sender

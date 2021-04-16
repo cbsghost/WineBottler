@@ -281,7 +281,7 @@
 		// Pipes
 		[task setStandardOutput:stdPipe];
 		[task setStandardError:errPipe];
-        NSLog([[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]);
+        NSLog(@"%@", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]);
 		environment = [NSMutableDictionary dictionaryWithObjects:
 							  [NSArray arrayWithObjects:
                                [NSString stringWithFormat:@"%@/bin:%@",[[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"], [[[NSProcessInfo processInfo] environment] objectForKey:@"PATH"]],
