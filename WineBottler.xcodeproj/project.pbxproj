@@ -1454,6 +1454,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
 					"$(inherited)",
@@ -1464,6 +1465,7 @@
 				GCC_PREFIX_HEADER = WineStatus/WineStatus_Prefix.pch;
 				INFOPLIST_FILE = WineStatus/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1483,6 +1485,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1492,6 +1495,7 @@
 				GCC_PREFIX_HEADER = WineStatus/WineStatus_Prefix.pch;
 				INFOPLIST_FILE = WineStatus/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1559,6 +1563,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
 					"$(inherited)",
@@ -1569,6 +1574,7 @@
 				GCC_PREFIX_HEADER = Winetricks/Winetricks_Prefix.pch;
 				INFOPLIST_FILE = Winetricks/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1588,6 +1594,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1597,6 +1604,7 @@
 				GCC_PREFIX_HEADER = Winetricks/Winetricks_Prefix.pch;
 				INFOPLIST_FILE = Winetricks/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -1616,6 +1624,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
 					"$(inherited)",
@@ -1626,6 +1635,7 @@
 				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
 				INFOPLIST_FILE = WineBottler/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = WineBottler;
 			};
@@ -1638,6 +1648,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 4.2.0a;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SRCROOT)/Frameworks\"",
@@ -1647,6 +1658,7 @@
 				GCC_PREFIX_HEADER = WineBottler/WineBottler_Prefix.pch;
 				INFOPLIST_FILE = WineBottler/Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				MARKETING_VERSION = 4.2.0a;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.kronenberg.${PRODUCT_NAME:identifier}";
 				PRODUCT_NAME = WineBottler;
 			};
