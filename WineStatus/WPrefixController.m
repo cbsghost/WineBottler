@@ -80,7 +80,7 @@
 #pragma mark NSQuery callback
 - (IBAction) queryForPrefixes:(id)sender
 {
-	NSUInteger i;
+	long i;
 	NSUserDefaults *userDefaults;
 	NSString *path;
 	NSMutableArray *knownPrefixes;
@@ -95,7 +95,7 @@
 	
 	// remove obsolete entries
 	knownPrefixes = [[[userDefaults objectForKey:@"knownPrefixes"] mutableCopy] autorelease];
-	for (i = [knownPrefixes count] -1; i > -1; i--) {
+	for (i = 0; i < [knownPrefixes count]; i++) {
 		if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/system.reg", [knownPrefixes objectAtIndex:i]]]) {
 			NSLog(@"remove: %@", [knownPrefixes objectAtIndex:i]);
 			[knownPrefixes removeObjectAtIndex:i];
