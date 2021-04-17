@@ -39,8 +39,8 @@
 
     if ((self = [super initWithCoder: decoder]))
     {
-        wDeleteIcon = [NSImage imageNamed: @"deleteIconTemplate.tiff"];
-        wFinderIcon = [NSImage imageNamed: @"finderIconTemplate.tiff"];
+        wDeleteIcon = [NSImage imageNamed: @"deleteIconTemplate"];
+        wFinderIcon = [NSImage imageNamed: @"finderIconTemplate"];
         icon_width = [wDeleteIcon size].width;
         icon_height = [wDeleteIcon size].height;
     }
@@ -57,7 +57,7 @@
     BOOL clicked = false;
     pointClicked = [self convertPoint:[event locationInWindow] fromView:nil];
     NSUInteger row = [self rowAtPoint: pointClicked];
-    NSRect cellRect = [self frameOfCellAtColumn:2 row:row];
+    NSRect cellRect = [self frameOfCellAtColumn:1 row:row];
     
     for (i = 0; i < 2; i++) {
         if (NSPointInRect(pointClicked, NSMakeRect(
@@ -98,7 +98,7 @@
 	clicked = false;
     pointClicked = [self convertPoint:[event locationInWindow] fromView:nil];
     row = [self rowAtPoint: pointClicked];
-    cellRect = [self frameOfCellAtColumn:2 row:row];
+    cellRect = [self frameOfCellAtColumn:1 row:row];
 	
     for (i = 0; i < 2; i++) {
         if (NSPointInRect(pointClicked, NSMakeRect(
@@ -140,7 +140,7 @@
     [super drawRect: rect];
 
     for (i = 0; i < [super numberOfRows]; i++) {
-        cellRect = [self frameOfCellAtColumn:2 row:i];
+        cellRect = [self frameOfCellAtColumn:1 row:i];
         
         // delete icon
         point = NSMakePoint(cellRect.origin.x + cellRect.size.width - 2 * (icon_width + ICON_SPACE), cellRect.origin.y + ICON_Y);

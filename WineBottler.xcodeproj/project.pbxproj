@@ -365,7 +365,6 @@
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		577A414F262A1DED006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WBottler/Resources/Base.lproj/WBottler.xib; sourceTree = "<group>"; };
 		577A4150262A1DEE006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		577A4151262A1DEF006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		577A4152262A1DEF006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WineBottler/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		577A4153262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		577A4154262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1234,7 +1233,6 @@
 		27C52A4610930FF800303AA6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				577A4151262A1DEF006F94A2 /* Base */,
 				577A4157262A1DF2006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
