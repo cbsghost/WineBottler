@@ -134,7 +134,7 @@
 	[savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"app"]];
 	[savePanel setCanCreateDirectories:YES];
     [savePanel beginSheetModalForWindow:[bottlerController bottlerWindow] completionHandler:^(NSInteger returnCode) {
-        if (returnCode == NSOKButton) {
+        if (returnCode == NSModalResponseOK) {
             [[[WBottler alloc] initWithScript:nil
                                           URL:[savePanel URL]
                                      template:template
@@ -177,7 +177,7 @@
 	[openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"exe",@"msi",nil]];
 	[openPanel setAllowsMultipleSelection:NO];
     [openPanel beginSheetModalForWindow:[bottlerController bottlerWindow] completionHandler:^(NSInteger returnCode) {
-        if (returnCode == NSOKButton) {
+        if (returnCode == NSModalResponseOK) {
             [installer setStringValue:[[openPanel URL] path]];
         }
     }];

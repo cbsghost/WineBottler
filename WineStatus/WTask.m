@@ -87,7 +87,7 @@
 							   wineDebug,																		// WINEDEBUG
 							   NSUserName(),																	// USER
 							   NSHomeDirectory(),																// HOME
-							   [(NSString*)CSCopyMachineName() autorelease],                                    // COMPUTERNAME
+							   [[NSHost currentHost] localizedName],                                    // COMPUTERNAME
 							   nil]
 														   forKeys:
 							  [NSArray arrayWithObjects:

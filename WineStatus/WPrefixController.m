@@ -167,13 +167,12 @@
 
 #pragma mark -
 #pragma mark NSTableView delegates
--(NSUInteger)numberOfRowsInTableView:(NSTableView *)table
+-(NSInteger)numberOfRowsInTableView:(NSTableView *)table
 {	
 	return [foundPrefixes count];
 }
 
-
-- (id) tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(int)rowIndex
+- (NSView *)tableView:(NSTableView *)aTableView viewForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex;
 {
 	NSString *path;
 	NSString *name;
@@ -188,12 +187,23 @@
 		name = [NSString stringWithFormat:@"%@ (Template)", [[path lastPathComponent] substringToIndex:[[path lastPathComponent] length] - 4]];
 	}
 	
-    if ([[aTableColumn identifier] isEqualTo: @"prefix"]) {
-		return name;
-    } else if ([[aTableColumn identifier] isEqualTo: @"icon"]) {
-		return [[NSWorkspace sharedWorkspace] iconForFile:path];
-	}
-    return nil;
+    NSTableCellView *cellView = [aTableView makeViewWithIdentifier:aTableColumn.identifier owner:self];
+    
+    for (NSView *cellSubview in [cellView subviews]) {
+        if ([[cellSubview identifier] isEqualTo: @"prefix"]) {
+            [(NSTextField *)cellSubview setStringValue:name];
+        } else if ([[cellSubview identifier] isEqualTo: @"icon"]) {
+            [(NSImageView *)cellSubview setImage:[[NSWorkspace sharedWorkspace] iconForFile:path]];
+        } else if ([[cellSubview identifier] isEqualTo: @"status"]) {
+            if ([path isEqual:[[NSUserDefaults standardUserDefaults] objectForKey:@"prefix"]]) {
+                [(NSImageView *)cellSubview setImage:[NSImage imageWithSystemSymbolName:@"play" accessibilityDescription:nil]];
+            } else {
+                [(NSImageView *)cellSubview setImage:nil];
+            }
+        }
+    }
+    
+    return cellView;
 }
 
 
@@ -202,7 +212,7 @@
 #pragma mark NSTableView clicks
 - (void) tableDoubleClick:(id)sender
 {
-
+	[self changePrefix:sender];
 }
 
 
@@ -249,7 +259,7 @@
 	[savePanel setAllowedFileTypes:nil];
     [savePanel setNameFieldStringValue:@"My new Wine prefix"];
     [savePanel beginSheetModalForWindow:[table window] completionHandler:^(NSInteger returnCode) {
-        if (returnCode == NSOKButton) {
+        if (returnCode == NSModalResponseOK) {
             [[NSUserDefaults standardUserDefaults] setObject:[[savePanel URL] path] forKey:@"prefix"];
             if (![[NSFileManager defaultManager] fileExistsAtPath:[NSString stringWithFormat:@"%@/system.reg", [[savePanel URL] path]]]) {
                 [[[WBottler alloc] initWithScript:@"customprefix.sh"
@@ -290,11 +300,13 @@
 }
 
 
-- (void) deleteAtRow:(NSUInteger)row
+- (IBAction) deleteAtRow:(id)sender
 {
 	NSRange range;
 	NSString *path;
 	NSAlert *alert;
+	
+	NSInteger row = [table rowForView:sender];
 	
 	range = [[foundPrefixes objectAtIndex:row] rangeOfString:@".app"];
 	if (range.location == NSNotFound) {
@@ -352,10 +364,12 @@
 }
 
 
-- (void) showInFinderAtRow:(NSUInteger)row
+- (IBAction) showInFinderAtRow:(id)sender
 {
 	NSRange range;
 	NSString *path;
+	
+	NSInteger row = [table rowForView:sender];
 	
 	range = [[foundPrefixes objectAtIndex:row] rangeOfString:@".app"];
 	if (range.location == NSNotFound) {

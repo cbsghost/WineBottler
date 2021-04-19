@@ -57,10 +57,10 @@
 {    
     // Conditionally add textured window flag to stylemask
     NSWindowStyleMask newStyle;
-    if (styleMask & NSTexturedBackgroundWindowMask) {
+    if (styleMask & NSWindowStyleMaskTexturedBackground) {
         newStyle = styleMask;
     } else {
-        newStyle = (NSTexturedBackgroundWindowMask | styleMask);
+        newStyle = (NSWindowStyleMaskTexturedBackground | styleMask);
     }
     
     if (self = [super initWithContentRect:contentRect styleMask:newStyle backing:bufferingType defer:flag]) {
@@ -176,21 +176,21 @@
     [template
         drawInRect:NSMakeRect(0, [bg size].height - BG_TOP -.1, [bg size].width, BG_TOP) 
         fromRect:top
-        operation:NSCompositeSourceOver 
+        operation:NSCompositingOperationSourceOver
         fraction:1.0];
 		
     // middle
     [template
         drawInRect:NSMakeRect(0, BG_BOTTOM, [bg size].width, [bg size].height - BG_TOP - BG_BOTTOM) 
         fromRect:middle
-        operation:NSCompositeSourceOver 
+        operation:NSCompositingOperationSourceOver
         fraction:1.0];
 		
     // footer
     [template
         drawInRect:NSMakeRect(0, 0, [bg size].width, BG_BOTTOM) 
         fromRect:footer
-        operation:NSCompositeSourceOver 
+        operation:NSCompositingOperationSourceOver 
         fraction:1.0];
 
     [bg unlockFocus];

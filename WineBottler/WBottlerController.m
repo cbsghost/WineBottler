@@ -143,7 +143,7 @@
             link = [[NSMutableAttributedString alloc] initWithString:oldVersion];
             [link addAttribute:NSLinkAttributeName value: @"https://winebottler.kronenberg.org" range: NSMakeRange([oldVersion length] - 27, 26)];
             av = [[NSTextView alloc] initWithFrame:NSMakeRect(0, 0, 250, 50)];
-            [av insertText:link];
+            [av insertText:link replacementRange:NSMakeRange([oldVersion length] - 27, 26)];
             [av setDrawsBackground:NO];
             alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"WineBottler %@ of available", string]
                                     defaultButton:@"OK"
@@ -452,7 +452,7 @@
             [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"app"]];
             [savePanel setCanCreateDirectories:YES];
             [savePanel beginSheetModalForWindow:bottlerWindow completionHandler:^(NSInteger returnCode) {
-                if (returnCode == NSOKButton) {
+                if (returnCode == NSModalResponseOK) {
                     [[[WBottler alloc] initWithScript:[programProperties objectForKey:@"script"]
                                                   URL:[savePanel URL]
                                              template:nil
@@ -575,7 +575,7 @@
 
     NSImage *iconImage = [[NSImage alloc] initWithContentsOfFile:icon];
     NSBitmapImageRep *iconImageBitmapRep = [[NSBitmapImageRep alloc] initWithData:[iconImage TIFFRepresentation]];
-    NSData *iconData = [iconImageBitmapRep representationUsingType:NSPNGFileType properties:dictionary];
+    NSData *iconData = [iconImageBitmapRep representationUsingType:NSBitmapImageFileTypePNG properties:dictionary];
     return [NSString stringWithFormat:@"data:image/png;base64,%@", [iconData base64EncodedStringWithOptions:0]];
 }
 
@@ -664,7 +664,7 @@
     alert = [[NSAlert alloc] init];
     [alert setMessageText:[NSString stringWithFormat:NSLocalizedStringFromTable(@"WBottlerController:prefixDelete:setMessageText", @"Localizable", @"WBottlerController"), [path lastPathComponent]]];
     [alert setInformativeText:[NSString stringWithFormat:NSLocalizedStringFromTable(@"WBottlerController:prefixDelete:setInformativeText", @"Localizable", @"WBottlerController"), [path lastPathComponent]]];
-    [alert setAlertStyle:NSWarningAlertStyle];
+    [alert setAlertStyle:NSAlertStyleWarning];
     [alert addButtonWithTitle:NSLocalizedStringFromTable(@"WBottlerController:prefixDelete:addButtonWithTitle:Remove", @"Localizable", @"WBottlerController")];
     [alert addButtonWithTitle:NSLocalizedStringFromTable(@"WBottlerController:prefixDelete:addButtonWithTitle:Cancel", @"Localizable", @"WBottlerController")];
     [alert beginSheetModalForWindow:bottlerWindow
@@ -724,7 +724,7 @@
 		alert = [[NSAlert alloc] init];
 		[alert setMessageText:[NSString stringWithFormat:NSLocalizedStringFromTable(@"WBottlerController:prefixReset:setMessageText", @"Localizable", @"WBottlerController"), [path lastPathComponent]]];
 		[alert setInformativeText:[NSString stringWithFormat:NSLocalizedStringFromTable(@"WBottlerController:prefixReset:setInformativeText", @"Localizable", @"WBottlerController"), [path lastPathComponent]]];
-		[alert setAlertStyle:NSWarningAlertStyle];
+		[alert setAlertStyle:NSAlertStyleWarning];
 		[alert addButtonWithTitle:NSLocalizedStringFromTable(@"WBottlerController:prefixReset:addButtonWithTitle:Reset", @"Localizable", @"WBottlerController")];
 		[alert addButtonWithTitle:NSLocalizedStringFromTable(@"WBottlerController:prefixReset:addButtonWithTitle:Cancel", @"Localizable", @"WBottlerController")];
 		[alert beginSheetModalForWindow:bottlerWindow

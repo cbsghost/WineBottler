@@ -205,7 +205,7 @@
 	for (i = 0; i < [runningExes count]; i++) {
 		menuItem = [[NSMenuItem alloc] initWithTitle:[[runningExes objectAtIndex:i] objectForKey:@"path"] action:@selector(kill:) keyEquivalent:@""];
 		[menuItem setTag:[[[runningExes objectAtIndex:i] objectForKey:@"pid"] intValue]];
-		[menuItem setImage:[NSImage imageNamed:@"killIconTemplate.tiff"]];
+		[menuItem setImage:[NSImage imageWithSystemSymbolName:@"xmark.circle.fill" accessibilityDescription:nil]];
 		[menuProcesses insertItem:menuItem atIndex:i];
 		[menuItem release];
 	}
@@ -395,7 +395,7 @@
 	 alert = [[NSAlert alloc] init];
 	 [alert setMessageText:@"You are about to change the prefix."];
 	 [alert setInformativeText:[NSString stringWithFormat:@"Are you sure you want to change the prefix to %@?", tPrefix]];
-	 [alert setAlertStyle:NSWarningAlertStyle];
+	 [alert setAlertStyle:NSAlertStyleWarning];
 	 [alert addButtonWithTitle:@"OK"];
 	 [alert addButtonWithTitle:@"Cancel"];
 	 [alert beginSheetModalForWindow:prefixesWindow
@@ -411,6 +411,8 @@
 		case NSAlertFirstButtonReturn:
 			[[NSUserDefaults standardUserDefaults] setObject:contextInfo forKey:@"prefix"];
 			[[NSUserDefaults standardUserDefaults] synchronize];
+			
+			[prefixTableView reloadData];
 			break;
 		case NSAlertSecondButtonReturn:
 			break;

@@ -47,6 +47,9 @@
 	IBOutlet NSButtonCell *buttonRunOptionBottler;
 	
 	IBOutlet WWinetricksController *winetricksController;
+    
+	// Workaround for prefix table
+	IBOutlet NSTableView *prefixTableView;
 
 	NSFileHandle *fileHandle;
 	NSMutableArray *runningExes;

@@ -68,7 +68,6 @@
 		27596AA915AFEF6500B14674 /* WTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AA815AFEF6500B14674 /* WTask.m */; };
 		27596AB115AFEFA800B14674 /* WHLnk.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAC15AFEFA700B14674 /* WHLnk.m */; };
 		27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AAE15AFEFA700B14674 /* WPrefixController.m */; };
-		27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 27596AB015AFEFA700B14674 /* WPrefixTableView.m */; };
 		2761BA2C1877A674006049E3 /* winemenubuilder.exe in Resources */ = {isa = PBXBuildFile; fileRef = 2761BA2B1877A674006049E3 /* winemenubuilder.exe */; };
 		276D9B6811B2AFDC00F23F0F /* WBottler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 270BB94E11B2A146000E25A2 /* WBottler.framework */; };
 		277950F111B2B99C00E2A76F /* WBottler.xib in Resources */ = {isa = PBXBuildFile; fileRef = 277950EF11B2B99C00E2A76F /* WBottler.xib */; };
@@ -97,12 +96,8 @@
 		27C52A4810930FF800303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4210930FF800303AA6 /* Credits.html */; };
 		27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4410930FF800303AA6 /* InfoPlist.strings */; };
 		27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27C52A4610930FF800303AA6 /* MainMenu.xib */; };
-		27C52A4F1093106100303AA6 /* killIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4660FA0BF64003802D1 /* killIconTemplate.png */; };
 		27C52A501093106100303AA6 /* killwine.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4670FA0BF64003802D1 /* killwine.sh */; };
-		27C52A511093106100303AA6 /* deleteIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4680FA0BF64003802D1 /* deleteIconTemplate.png */; };
-		27C52A521093106100303AA6 /* finderIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4690FA0BF64003802D1 /* finderIconTemplate.png */; };
 		27C52A531093106100303AA6 /* WineFolder.icns in Resources */ = {isa = PBXBuildFile; fileRef = 2721D4700FA0BF64003802D1 /* WineFolder.icns */; };
-		27C52A591093110B00303AA6 /* reloadIconTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 2721D46F0FA0BF64003802D1 /* reloadIconTemplate.png */; };
 		27C52A5A1093113600303AA6 /* options_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 27029B2F107292740071F80B /* options_bg.png */; };
 		27C52A5D109311A500303AA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A5B109311A500303AA6 /* main.m */; };
 		27C52A74109332E100303AA6 /* WSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27C52A73109332E100303AA6 /* WSController.m */; };
@@ -116,13 +111,9 @@
 		27C52BF71095F4FC00303AA6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF31095F4FC00303AA6 /* InfoPlist.strings */; };
 		27C52BFA1095F55F00303AA6 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 27C52BF91095F55F00303AA6 /* Credits.html */; };
 		27D694A118B7C5CF00534E70 /* WineStatusIconTemplate.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */; };
-		27D694A618B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
 		27D694A718B7C9C800534E70 /* killIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A218B7C9C800534E70 /* killIconTemplate@2x.png */; };
-		27D694A818B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */; };
 		27D694A918B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A318B7C9C800534E70 /* deleteIconTemplate@2x.png */; };
-		27D694AA18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */; };
 		27D694AB18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A418B7C9C800534E70 /* finderIconTemplate@2x.png */; };
-		27D694AC18B7C9C800534E70 /* reloadIconTemplate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27D694A518B7C9C800534E70 /* reloadIconTemplate@2x.png */; };
 		27E4FCA9172EDFA800EA1DAF /* bitcoinLogo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 27E4FCA8172EDFA800EA1DAF /* bitcoinLogo.svg */; };
 		27F3B6E711A5BF5500B11B00 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27F3B6E611A5BF5500B11B00 /* WebKit.framework */; };
 		27F3B97811A619A900B11B00 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 27ECB3000FCD62EB0050C76A /* Icon.icns */; };
@@ -133,7 +124,6 @@
 		27F3BDCF11AB058C00B11B00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BDCD11AB058C00B11B00 /* Localizable.strings */; };
 		27F3BFAA11AD523500B11B00 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA311AD523500B11B00 /* InfoPlist.strings */; };
 		27F3BFAB11AD523500B11B00 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA511AD523500B11B00 /* Localizable.strings */; };
-		27F3BFAC11AD523500B11B00 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F3BFA711AD523500B11B00 /* MainMenu.xib */; };
 		27F3BFAF11AD524D00B11B00 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFAD11AD524D00B11B00 /* main.m */; };
 		27F3BFB011AD527A00B11B00 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		27F3BFBB11AD542900B11B00 /* WTController.m in Sources */ = {isa = PBXBuildFile; fileRef = 27F3BFBA11AD542900B11B00 /* WTController.m */; };
@@ -144,6 +134,7 @@
 		27FF12F715A6B27C00B21AEE /* onmymac@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F115A6B27C00B21AEE /* onmymac@2x.png */; };
 		27FF12F815A6B27C00B21AEE /* programs.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F215A6B27C00B21AEE /* programs.png */; };
 		27FF12F915A6B27C00B21AEE /* programs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 27FF12F315A6B27C00B21AEE /* programs@2x.png */; };
+		577A42A0262CC054006F94A2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 577A429E262CC054006F94A2 /* MainMenu.xib */; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
@@ -364,16 +355,14 @@
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		577A414F262A1DED006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WBottler/Resources/Base.lproj/WBottler.xib; sourceTree = "<group>"; };
-		577A4150262A1DEE006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = ../Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		577A4152262A1DEF006F94A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = WineBottler/Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		577A4153262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		577A4154262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = WineBottler/en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		577A4155262A1DF1006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = WineBottler/en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		577A4156262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		577A4157262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		577A4158262A1DF2006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		577A4159262A1DF3006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = ../en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		577A415A262A1DF3006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A427F262CBE55006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = ../en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		577A429F262CC054006F94A2 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = MainMenu.xib; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = WineBottler/Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* WineBottler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineBottler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -543,19 +532,19 @@
 			children = (
 				27D694A018B7C5CF00534E70 /* WineStatusIconTemplate.pdf */,
 				27C52A4210930FF800303AA6 /* Credits.html */,
-				27C52A4310930FF800303AA6 /* English.lproj */,
+				27C52A4310930FF800303AA6 /* en.lproj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		27C52A4310930FF800303AA6 /* English.lproj */ = {
+		27C52A4310930FF800303AA6 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				27C52A4410930FF800303AA6 /* InfoPlist.strings */,
 				27C52A4610930FF800303AA6 /* MainMenu.xib */,
 			);
-			name = English.lproj;
-			path = WineStatus/English.lproj;
+			name = en.lproj;
+			path = WineStatus/en.lproj;
 			sourceTree = "<group>";
 		};
 		27C52BC11095F27E00303AA6 /* WineBottler */ = {
@@ -617,21 +606,21 @@
 				27FF12F315A6B27C00B21AEE /* programs@2x.png */,
 				27F3BD8E11AAFDE700B11B00 /* Application.icns */,
 				27F3BD8011AAFCE100B11B00 /* Programs.icns */,
-				27C52C4B1095F96200303AA6 /* English.lproj */,
+				27C52C4B1095F96200303AA6 /* en.lproj */,
 				27C52BF91095F55F00303AA6 /* Credits.html */,
 				27F3B9E011A6A29900B11B00 /* predefined.html */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		27C52C4B1095F96200303AA6 /* English.lproj */ = {
+		27C52C4B1095F96200303AA6 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				27C52BF31095F4FC00303AA6 /* InfoPlist.strings */,
 				27C52BF51095F4FC00303AA6 /* MainMenu.xib */,
 				27F3BDCD11AB058C00B11B00 /* Localizable.strings */,
 			);
-			name = English.lproj;
+			name = en.lproj;
 			sourceTree = "<group>";
 		};
 		27F3BF9B11AD517E00B11B00 /* Winetricks */ = {
@@ -675,10 +664,10 @@
 			children = (
 				27F3BFA311AD523500B11B00 /* InfoPlist.strings */,
 				27F3BFA511AD523500B11B00 /* Localizable.strings */,
-				27F3BFA711AD523500B11B00 /* MainMenu.xib */,
+				577A429E262CC054006F94A2 /* MainMenu.xib */,
 			);
 			name = English.lproj;
-			path = Winetricks/Resources/English.lproj;
+			path = Winetricks/Resources/en.lproj;
 			sourceTree = "<group>";
 		};
 		29B97314FDCFA39411CA2CEA /* WineBottler */ = {
@@ -935,20 +924,12 @@
 				27D694A118B7C5CF00534E70 /* WineStatusIconTemplate.pdf in Resources */,
 				27F3B97811A619A900B11B00 /* Icon.icns in Resources */,
 				27C52A4910930FF800303AA6 /* InfoPlist.strings in Resources */,
-				27D694AC18B7C9C800534E70 /* reloadIconTemplate@2x.png in Resources */,
 				27C52A4A10930FF800303AA6 /* MainMenu.xib in Resources */,
-				27D694AA18B7C9C800534E70 /* finderIconTemplate@2x.png in Resources */,
-				27D694A618B7C9C800534E70 /* killIconTemplate@2x.png in Resources */,
 				27C52A4810930FF800303AA6 /* Credits.html in Resources */,
-				27C52A4F1093106100303AA6 /* killIconTemplate.png in Resources */,
 				27C52A501093106100303AA6 /* killwine.sh in Resources */,
-				27C52A511093106100303AA6 /* deleteIconTemplate.png in Resources */,
-				27C52A521093106100303AA6 /* finderIconTemplate.png in Resources */,
-				27C52A591093110B00303AA6 /* reloadIconTemplate.png in Resources */,
 				27C52A531093106100303AA6 /* WineFolder.icns in Resources */,
 				27C52A5A1093113600303AA6 /* options_bg.png in Resources */,
 				27C52A3D10930F6F00303AA6 /* dsapubkey.pem in Resources */,
-				27D694A818B7C9C800534E70 /* deleteIconTemplate@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,7 +939,7 @@
 			files = (
 				27F3BFAA11AD523500B11B00 /* InfoPlist.strings in Resources */,
 				27F3BFAB11AD523500B11B00 /* Localizable.strings in Resources */,
-				27F3BFAC11AD523500B11B00 /* MainMenu.xib in Resources */,
+				577A42A0262CC054006F94A2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1130,7 +1111,6 @@
 				27596AA915AFEF6500B14674 /* WTask.m in Sources */,
 				27596AB115AFEFA800B14674 /* WHLnk.m in Sources */,
 				27596AB215AFEFA800B14674 /* WPrefixController.m in Sources */,
-				27596AB315AFEFA800B14674 /* WPrefixTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1233,7 +1213,7 @@
 		27C52A4610930FF800303AA6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				577A4157262A1DF2006F94A2 /* en */,
+				577A427F262CBE55006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1249,7 +1229,6 @@
 		27C52BF51095F4FC00303AA6 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				577A4152262A1DEF006F94A2 /* Base */,
 				577A4155262A1DF1006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
@@ -1279,11 +1258,10 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
-		27F3BFA711AD523500B11B00 /* MainMenu.xib */ = {
+		577A429E262CC054006F94A2 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				577A4150262A1DEE006F94A2 /* Base */,
-				577A415A262A1DF3006F94A2 /* en */,
+				577A429F262CC054006F94A2 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -1698,7 +1676,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;
@@ -1740,7 +1718,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = macosx;

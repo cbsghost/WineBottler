@@ -27,7 +27,7 @@
 
 
 
-@interface WPrefixController : NSObject <NSMetadataQueryDelegate> {
+@interface WPrefixController : NSObject <NSMetadataQueryDelegate, NSTableViewDataSource, NSTableViewDelegate> {
 	IBOutlet id controller;
 	id bottlerController;
 	
@@ -47,7 +47,7 @@
 - (IBAction) changePrefix:(id)sender;
 - (IBAction) search:(id)sender;
 - (IBAction) createNewPrefix:(id)sender;
-- (void) deleteAtRow:(NSUInteger)row;
+- (IBAction) deleteAtRow:(id)sender;
 - (void) deletePrefixAlertDidEnd:(NSAlert *)alert returnCode:(int)returnCode contextInfo:(void *)contextInfo;
-- (void) showInFinderAtRow:(NSUInteger)row;
+- (IBAction) showInFinderAtRow:(id)sender;
 @end

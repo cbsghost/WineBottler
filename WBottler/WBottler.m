@@ -292,7 +292,7 @@
 							   [NSString stringWithFormat:@"%@/etc/fonts/fonts.conf", [[NSUserDefaults standardUserDefaults] objectForKey:@"winePath"]], // FONTCONFIG_FILE
 							   NSUserName(),									// USER
 							   NSHomeDirectory(),								// HOME
-							   [(NSString*)CSCopyMachineName() autorelease],    // COMPUTERNAME
+							   [[NSHost currentHost] localizedName],    // COMPUTERNAME
 							   
 							   [[NSBundle bundleForClass:[self class]] resourcePath], // BUNDLERESOURCEPATH
 							   [tFilename path],								// BOTTLE
@@ -538,11 +538,12 @@
 //    if ([[[KBActionWindow sharedKBActionWindow] window] respondsToSelector:@selector(beginSheet:completionHandler:)]) {
 //        [[[KBActionWindow sharedKBActionWindow] window] beginSheet:findExePanel completionHandler:nil];
 //    } else {
-        [NSApp beginSheet:findExePanel
-           modalForWindow:[[KBActionWindow sharedKBActionWindow] window]
-            modalDelegate:self
-           didEndSelector:nil
-              contextInfo:nil];
+        //[NSApp beginSheet:findExePanel
+        //   modalForWindow:[[KBActionWindow sharedKBActionWindow] window]
+        //    modalDelegate:self
+        //   didEndSelector:nil
+        //      contextInfo:nil];
+        [[[KBActionWindow sharedKBActionWindow] window] beginSheet:findExePanel completionHandler:nil];
 //    }
 }
 
