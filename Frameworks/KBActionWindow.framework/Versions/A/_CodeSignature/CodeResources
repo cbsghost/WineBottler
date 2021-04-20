@@ -15,27 +15,19 @@
 		</dict>
 		<key>Resources/Info.plist</key>
 		<data>
-		+FTQfDURvYl0BCQY09hndmaXWZM=
+		3XwOoa8i0mzx/zSZAE9EnZVRghw=
 		</data>
 		<key>Resources/KBActionView.nib</key>
 		<data>
-		+mCVoUceDk8VAhb/nao/SEjdqPo=
+		wqULaEAjidHAGISLV5cAKb4hZ90=
 		</data>
 		<key>Resources/KBActionWindow.nib</key>
 		<data>
-		2JH/Wm6dJygvvqylZmQXosBemOk=
-		</data>
-		<key>Resources/abort.png</key>
-		<data>
-		xDpR+SaZGdLy6/nB+apLHtQEZwI=
+		seT8EK+JgFKlGOEBlE7qld5qO1U=
 		</data>
 		<key>Resources/abort.tiff</key>
 		<data>
-		H9MmsJ5Q1xInLOYfJg2Llyu7DW0=
-		</data>
-		<key>Resources/abort@2x.png</key>
-		<data>
-		0qfQbU7R3cG8aQP/6rQL5NkLeCY=
+		zWelSfCDzwi0L3NG483Rb5heMqY=
 		</data>
 		<key>Resources/q_bg.png</key>
 		<data>
@@ -45,50 +37,95 @@
 	<key>files2</key>
 	<dict>
 		<key>Headers/KBAction.h</key>
-		<data>
-		4yrRxon316Z0N+tLw7YGeigMqsg=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			4yrRxon316Z0N+tLw7YGeigMqsg=
+			</data>
+			<key>hash2</key>
+			<data>
+			Y9LxP+cCnQK9igUTOQZZ+VWGcKL5VLk1sMeXZQq/RKw=
+			</data>
+		</dict>
 		<key>Headers/KBActionWindow.h</key>
-		<data>
-		HsTFZwdT64YnKgKA371NEbYX8EI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			HsTFZwdT64YnKgKA371NEbYX8EI=
+			</data>
+			<key>hash2</key>
+			<data>
+			mNQnUqsQFlgysmR+zr92iV5WsSGcIfWhGu9sQZBv6O0=
+			</data>
+		</dict>
 		<key>Resources/English.lproj/InfoPlist.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
 			MiLKDDnrUKr4EmuvhS5VQwxHGK8=
 			</data>
+			<key>hash2</key>
+			<data>
+			Oc8u4Ht7Mz58F50L9NeYpbcq9qTlhPUeZCcDu/pPyCg=
+			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
 		<key>Resources/Info.plist</key>
-		<data>
-		+FTQfDURvYl0BCQY09hndmaXWZM=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			3XwOoa8i0mzx/zSZAE9EnZVRghw=
+			</data>
+			<key>hash2</key>
+			<data>
+			qQwxK59QG2sVJ456ZqoQ6CxG8fryFoOwDIpWR49W9W8=
+			</data>
+		</dict>
 		<key>Resources/KBActionView.nib</key>
-		<data>
-		+mCVoUceDk8VAhb/nao/SEjdqPo=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			wqULaEAjidHAGISLV5cAKb4hZ90=
+			</data>
+			<key>hash2</key>
+			<data>
+			/GipJ3JUJXrFbmz3f6hegdWbJH+dUet/wUragAu18Ag=
+			</data>
+		</dict>
 		<key>Resources/KBActionWindow.nib</key>
-		<data>
-		2JH/Wm6dJygvvqylZmQXosBemOk=
-		</data>
-		<key>Resources/abort.png</key>
-		<data>
-		xDpR+SaZGdLy6/nB+apLHtQEZwI=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			seT8EK+JgFKlGOEBlE7qld5qO1U=
+			</data>
+			<key>hash2</key>
+			<data>
+			XKkYAPAWSMjz2YX4kcAbWpuWJ1O02bPhaqr8X5kAgmA=
+			</data>
+		</dict>
 		<key>Resources/abort.tiff</key>
-		<data>
-		H9MmsJ5Q1xInLOYfJg2Llyu7DW0=
-		</data>
-		<key>Resources/abort@2x.png</key>
-		<data>
-		0qfQbU7R3cG8aQP/6rQL5NkLeCY=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			zWelSfCDzwi0L3NG483Rb5heMqY=
+			</data>
+			<key>hash2</key>
+			<data>
+			YTpquetYR9o/3hrOeEn7/yyxsL9V7tjKxNeRNrfVR2Q=
+			</data>
+		</dict>
 		<key>Resources/q_bg.png</key>
-		<data>
-		PPlFV9/eB/lr+Uc8AAvRXtKnr8g=
-		</data>
+		<dict>
+			<key>hash</key>
+			<data>
+			PPlFV9/eB/lr+Uc8AAvRXtKnr8g=
+			</data>
+			<key>hash2</key>
+			<data>
+			k+iokGeqZ1ddi0O4N6p+/6v5tWXXGz/dojnxvRlZ/5k=
+			</data>
+		</dict>
 	</dict>
 	<key>rules</key>
 	<dict>
@@ -107,6 +144,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^version.plist$</key>
 		<true/>
@@ -166,6 +208,11 @@
 			<true/>
 			<key>weight</key>
 			<real>1100</real>
+		</dict>
+		<key>^Resources/Base\.lproj/</key>
+		<dict>
+			<key>weight</key>
+			<real>1010</real>
 		</dict>
 		<key>^[^/]+$</key>
 		<dict>
