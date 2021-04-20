@@ -636,7 +636,7 @@
 		27F3BF9D11AD51EE00B11B00 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27F3BFA011AD523500B11B00 /* English.lproj */,
+				27F3BFA011AD523500B11B00 /* en.lproj */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -659,14 +659,14 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		27F3BFA011AD523500B11B00 /* English.lproj */ = {
+		27F3BFA011AD523500B11B00 /* en.lproj */ = {
 			isa = PBXGroup;
 			children = (
 				27F3BFA311AD523500B11B00 /* InfoPlist.strings */,
 				27F3BFA511AD523500B11B00 /* Localizable.strings */,
 				577A429E262CC054006F94A2 /* MainMenu.xib */,
 			);
-			name = English.lproj;
+			name = en.lproj;
 			path = Winetricks/Resources/en.lproj;
 			sourceTree = "<group>";
 		};
