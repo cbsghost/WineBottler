@@ -553,10 +553,10 @@ winebottlerPrefix () {
 
     winebottlerReg
 	wait
-	[ "$WINE_VERSION" != "1.0.1" ] && {
-		winebottlerSandbox
-		wait
-	}
+	#[ "$WINE_VERSION" != "1.0.1" ] && {
+	#	winebottlerSandbox
+	#	wait
+	#}
 	cd "$WINEPREFIX/drive_c/windows"
 #   winebottlerTry rm -rf "$WINEPREFIX/drive_c/windows/system"
 #	wait
